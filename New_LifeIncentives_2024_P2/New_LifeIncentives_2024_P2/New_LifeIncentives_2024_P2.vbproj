@@ -92,9 +92,53 @@
     <Import Include="System.Web.UI.HtmlControls" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="childDashboard.aspx" />
+    <Content Include="childGoals.aspx" />
+    <Content Include="childLogin.aspx" />
+    <Content Include="landingPage.aspx" />
+    <Content Include="parentDashboard.aspx" />
+    <Content Include="parentGoals.aspx" />
+    <Content Include="parentLogin.aspx" />
+    <Content Include="signUp.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="childDashboard.aspx.designer.vb">
+      <DependentUpon>childDashboard.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="childDashboard.aspx.vb">
+      <DependentUpon>childDashboard.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="childGoals.aspx.designer.vb">
+      <DependentUpon>childGoals.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="childGoals.aspx.vb">
+      <DependentUpon>childGoals.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="childLogin.aspx.designer.vb">
+      <DependentUpon>childLogin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="childLogin.aspx.vb">
+      <DependentUpon>childLogin.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="landingPage.aspx.designer.vb">
+      <DependentUpon>landingPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="landingPage.aspx.vb">
+      <DependentUpon>landingPage.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Models\TBL_Child_User.vb" />
+    <Compile Include="Models\TBL_Financial_Information.vb" />
+    <Compile Include="Models\TBL_Incentives.vb" />
+    <Compile Include="Models\TBL_Parent_User.vb" />
+    <Compile Include="Models\TBL_Recommendations.vb" />
+    <Compile Include="Models\TBL_Set_Goals.vb" />
+    <Compile Include="Models\TBL_Transactions.vb" />
+    <Compile Include="Models\TBL_View_Goals.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -114,6 +158,46 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="parentDashboard.aspx.designer.vb">
+      <DependentUpon>parentDashboard.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="parentDashboard.aspx.vb">
+      <DependentUpon>parentDashboard.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="parentGoals.aspx.designer.vb">
+      <DependentUpon>parentGoals.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="parentGoals.aspx.vb">
+      <DependentUpon>parentGoals.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="parentLogin.aspx.designer.vb">
+      <DependentUpon>parentLogin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="parentLogin.aspx.vb">
+      <DependentUpon>parentLogin.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="signUp.aspx.designer.vb">
+      <DependentUpon>signUp.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="signUp.aspx.vb">
+      <DependentUpon>signUp.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Site1.Master.designer.vb">
+      <DependentUpon>Site1.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Site1.Master.vb">
+      <DependentUpon>Site1.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Utility\cipherGate.vb" />
+    <Compile Include="Utility\DatabaseConnectException.vb" />
+    <Compile Include="Utility\DBInterface.vb" />
+    <Compile Include="Utility\ENTITY.VB" />
+    <Compile Include="Utility\genfunctions.vb" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="My Project\Resources.resx">
@@ -134,6 +218,14 @@
       <LastGenOutput>Settings.Designer.vb</LastGenOutput>
     </None>
     <None Include="packages.config" />
+    <Content Include="Site1.Master" />
+    <Content Include="Utility\ds_reports.xsc">
+      <DependentUpon>ds_reports.xsd</DependentUpon>
+    </Content>
+    <None Include="Utility\ds_reports.xsd" />
+    <Content Include="Utility\ds_reports.xss">
+      <DependentUpon>ds_reports.xsd</DependentUpon>
+    </Content>
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
