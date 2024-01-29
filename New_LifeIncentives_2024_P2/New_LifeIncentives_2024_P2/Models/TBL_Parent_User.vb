@@ -17,17 +17,17 @@ Public Class TBL_Parent_User
     Private I_Display_Email as Boolean = true
     Private I_Display_Password as Boolean = true
     Private I_Display_Employment as Boolean = true
-    Private I_Display_Child_ID as Boolean = true
+    Private I_Display_Child_ID as Boolean = True
 
-    Public previous_Parent_ID as nullable(of System.Int32)
+    Public previous_Parent_ID As System.String
 
-    Public Parent_ID as nullable(of System.Int32)
+    Public Parent_ID As System.String
     Public Parent_Name as System.String
     Public Parent_Surname as System.String
     Public Email as System.String
     Public Password as System.String
     Public Employment as System.String
-    Public Child_ID as nullable(of System.Int32)
+    Public Child_ID As System.String
     Private newinstance As Boolean = True
 
     Shared Sub Set_Display_Field_All(display_flag as boolean)
@@ -49,7 +49,7 @@ Public Class TBL_Parent_User
         cmd.CommandText = "insert into TBL_Parent_User (Parent_ID,Parent_Name,Parent_Surname,Email,Password,Employment,Child_ID)"
         cmd.CommandText = cmd.CommandText & "values(@Parent_ID,@Parent_Name,@Parent_Surname,@Email,@Password,@Employment,@Child_ID)"
 
-        cmd.Parameters.Add("@Parent_ID", 8, 0, "Parent_ID")
+        cmd.Parameters.Add("@Parent_ID", 22, 255, "Parent_ID")
         cmd.Parameters("@Parent_ID").Value = SetNull(Parent_ID)
         cmd.Parameters.Add("@Parent_Name", 22, 50, "Parent_Name")
         cmd.Parameters("@Parent_Name").Value = SetNull(Parent_Name)
@@ -61,7 +61,7 @@ Public Class TBL_Parent_User
         cmd.Parameters("@Password").Value = SetNull(Password)
         cmd.Parameters.Add("@Employment", 22, 50, "Employment")
         cmd.Parameters("@Employment").Value = SetNull(Employment)
-        cmd.Parameters.Add("@Child_ID", 8, 0, "Child_ID")
+        cmd.Parameters.Add("@Child_ID", 22, 255, "Child_ID")
         cmd.Parameters("@Child_ID").Value = SetNull(Child_ID)
 
 
@@ -76,7 +76,7 @@ Public Class TBL_Parent_User
         If Not IsNothing(HttpContext.Current.Session("trans")) Then cmd.Transaction = HttpContext.Current.Session("trans")
         cmd.CommandType = CommandType.Text
         cmd.CommandText = "delete from TBL_Parent_User where Parent_ID=@previous_Parent_ID"
-        cmd.Parameters.Add("@previous_Parent_ID", 8, 0, "previous_Parent_ID")
+        cmd.Parameters.Add("@previous_Parent_ID", 22, 255, "previous_Parent_ID")
         cmd.Parameters("@previous_Parent_ID").Value = Me.previous_Parent_ID
 
         cmd.ExecuteNonQuery()
@@ -98,7 +98,7 @@ Public Class TBL_Parent_User
         if Display_Child_ID = true then cmd.CommandText = cmd.CommandText & "Child_ID,"
         cmd.CommandText = cmd.CommandText.Substring(0, cmd.CommandText.Length - 1)
         cmd.CommandText = cmd.CommandText & " from TBL_Parent_User where Parent_ID=@Parent_ID"
-        cmd.Parameters.Add("@Parent_ID", 8, 0, "Parent_ID")
+        cmd.Parameters.Add("@Parent_ID", 22, 255, "Parent_ID")
         cmd.Parameters("@Parent_ID").Value = Parent_ID
 
         Dim pl As New sqlDataAdapter, dt As New DataTable, i As Integer
@@ -150,7 +150,7 @@ Public Class TBL_Parent_User
         cmd.CommandText = cmd.CommandText & " where Parent_ID=@previous_Parent_ID"
 
 
-        cmd.Parameters.Add("@Parent_ID", 8, 0, "Parent_ID")
+        cmd.Parameters.Add("@Parent_ID", 22, 255, "Parent_ID")
         cmd.Parameters("@Parent_ID").Value = SetNull(Parent_ID)
 
         if I_Display_Parent_Name = true then cmd.Parameters.Add("@Parent_Name", 22, 50, "Parent_Name")
@@ -173,7 +173,7 @@ Public Class TBL_Parent_User
 
 
 
-        cmd.Parameters.Add("@previous_Parent_ID", 8, 0, "previous_Parent_ID")
+        cmd.Parameters.Add("@previous_Parent_ID", 22, 255, "previous_Parent_ID")
         cmd.Parameters("@previous_Parent_ID").Value = Me.previous_Parent_ID
 
 

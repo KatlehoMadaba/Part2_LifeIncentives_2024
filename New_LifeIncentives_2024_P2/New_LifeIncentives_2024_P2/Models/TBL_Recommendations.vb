@@ -15,12 +15,12 @@ Public Class TBL_Recommendations
     Private I_Display_Category as Boolean = true
     Private I_Display_Task as Boolean = true
     Private I_Display_Default_Price as Boolean = true
-    Private I_Display_Default_Time as Boolean = true
+    Private I_Display_Default_Time as Boolean = True
 
-    Public previous_Recommendation_ID as nullable(of System.Int32)
+    Public previous_Recommendation_ID As System.String
 
-    Public Recommendation_ID as nullable(of System.Int32)
-    Public Incentives_ID as nullable(of System.Int32)
+    Public Recommendation_ID As System.String
+    Public Incentives_ID As System.String
     Public Category as System.String
     Public Task as System.String
     Public Default_Price as nullable(of System.Double)
@@ -45,9 +45,9 @@ Public Class TBL_Recommendations
         cmd.CommandText = "insert into TBL_Recommendations (Recommendation_ID,Incentives_ID,Category,Task,Default_Price,Default_Time)"
         cmd.CommandText = cmd.CommandText & "values(@Recommendation_ID,@Incentives_ID,@Category,@Task,@Default_Price,@Default_Time)"
 
-        cmd.Parameters.Add("@Recommendation_ID", 8, 0, "Recommendation_ID")
+        cmd.Parameters.Add("@Recommendation_ID", 22, 255, "Recommendation_ID")
         cmd.Parameters("@Recommendation_ID").Value = SetNull(Recommendation_ID)
-        cmd.Parameters.Add("@Incentives_ID", 8, 0, "Incentives_ID")
+        cmd.Parameters.Add("@Incentives_ID", 22, 255, "Incentives_ID")
         cmd.Parameters("@Incentives_ID").Value = SetNull(Incentives_ID)
         cmd.Parameters.Add("@Category", 22, 50, "Category")
         cmd.Parameters("@Category").Value = SetNull(Category)
@@ -70,7 +70,7 @@ Public Class TBL_Recommendations
         If Not IsNothing(HttpContext.Current.Session("trans")) Then cmd.Transaction = HttpContext.Current.Session("trans")
         cmd.CommandType = CommandType.Text
         cmd.CommandText = "delete from TBL_Recommendations where Recommendation_ID=@previous_Recommendation_ID"
-        cmd.Parameters.Add("@previous_Recommendation_ID", 8, 0, "previous_Recommendation_ID")
+        cmd.Parameters.Add("@previous_Recommendation_ID", 22, 255, "previous_Recommendation_ID")
         cmd.Parameters("@previous_Recommendation_ID").Value = Me.previous_Recommendation_ID
 
         cmd.ExecuteNonQuery()
@@ -91,7 +91,7 @@ Public Class TBL_Recommendations
         if Display_Default_Time = true then cmd.CommandText = cmd.CommandText & "Default_Time,"
         cmd.CommandText = cmd.CommandText.Substring(0, cmd.CommandText.Length - 1)
         cmd.CommandText = cmd.CommandText & " from TBL_Recommendations where Recommendation_ID=@Recommendation_ID"
-        cmd.Parameters.Add("@Recommendation_ID", 8, 0, "Recommendation_ID")
+        cmd.Parameters.Add("@Recommendation_ID", 22, 255, "Recommendation_ID")
         cmd.Parameters("@Recommendation_ID").Value = Recommendation_ID
 
         Dim pl As New sqlDataAdapter, dt As New DataTable, i As Integer
@@ -140,11 +140,11 @@ Public Class TBL_Recommendations
         cmd.CommandText = cmd.CommandText & " where Recommendation_ID=@previous_Recommendation_ID"
 
 
-        cmd.Parameters.Add("@Recommendation_ID", 8, 0, "Recommendation_ID")
+        cmd.Parameters.Add("@Recommendation_ID", 22, 255, "Recommendation_ID")
         cmd.Parameters("@Recommendation_ID").Value = SetNull(Recommendation_ID)
 
-        if I_Display_Incentives_ID = true then cmd.Parameters.Add("@Incentives_ID", 8, 0, "Incentives_ID")
-        if I_Display_Incentives_ID = true then cmd.Parameters("@Incentives_ID").Value = SetNull(Incentives_ID)
+        If I_Display_Incentives_ID = True Then cmd.Parameters.Add("@Incentives_ID", 22, 255, "Incentives_ID")
+        If I_Display_Incentives_ID = true then cmd.Parameters("@Incentives_ID").Value = SetNull(Incentives_ID)
 
         if I_Display_Category = true then cmd.Parameters.Add("@Category", 22, 50, "Category")
         if I_Display_Category = true then cmd.Parameters("@Category").Value = SetNull(Category)
@@ -160,7 +160,7 @@ Public Class TBL_Recommendations
 
 
 
-        cmd.Parameters.Add("@previous_Recommendation_ID", 8, 0, "previous_Recommendation_ID")
+        cmd.Parameters.Add("@previous_Recommendation_ID", 22, 255, "previous_Recommendation_ID")
         cmd.Parameters("@previous_Recommendation_ID").Value = Me.previous_Recommendation_ID
 
 

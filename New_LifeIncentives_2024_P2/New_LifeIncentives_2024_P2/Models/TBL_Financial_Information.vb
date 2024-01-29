@@ -49,13 +49,13 @@ Public Class TBL_Financial_Information
     Private I_Display_Gadgets_Status as Boolean = true
     Private I_Display_Gadgets_Price as Boolean = true
     Private I_Display_Celebration_Status as Boolean = true
-    Private I_Display_Celebration_Price as Boolean = true
+    Private I_Display_Celebration_Price as Boolean = True
 
-    Public previous_Financial_Information_ID as nullable(of System.Int32)
+    Public previous_Financial_Information_ID As System.String
 
-    Public Financial_Information_ID as nullable(of System.Int32)
-    Public Parent_ID as nullable(of System.Int32)
-    Public Incentives_ID as nullable(of System.Int32)
+    Public Financial_Information_ID As System.String
+    Public Parent_ID As System.String
+    Public Incentives_ID As System.String
     Public School_Type as System.String
     Public School_Level as System.String
     Public School_Fees_Funding_Status as System.String
@@ -113,11 +113,11 @@ Public Class TBL_Financial_Information
         cmd.CommandText = "insert into TBL_Financial_Information (Financial_Information_ID,Parent_ID,Incentives_ID,School_Type,School_Level,School_Fees_Funding_Status,School_Fees_Price,Stationery_Funding_Status,Stationery_Price,Allowance_Status,Allowance_Price,Transport_Status,Transport_Price,Accommodation_Status,Accommodation_Price,Membership_Status,Membership_Price,ExternalClasses_Status,ExternalClass_Prices,Gadgets_Status,Gadgets_Price,Celebration_Status,Celebration_Price)"
         cmd.CommandText = cmd.CommandText & "values(@Financial_Information_ID,@Parent_ID,@Incentives_ID,@School_Type,@School_Level,@School_Fees_Funding_Status,@School_Fees_Price,@Stationery_Funding_Status,@Stationery_Price,@Allowance_Status,@Allowance_Price,@Transport_Status,@Transport_Price,@Accommodation_Status,@Accommodation_Price,@Membership_Status,@Membership_Price,@ExternalClasses_Status,@ExternalClass_Prices,@Gadgets_Status,@Gadgets_Price,@Celebration_Status,@Celebration_Price)"
 
-        cmd.Parameters.Add("@Financial_Information_ID", 8, 0, "Financial_Information_ID")
+        cmd.Parameters.Add("@Financial_Information_ID", 22, 255, "Financial_Information_ID")
         cmd.Parameters("@Financial_Information_ID").Value = SetNull(Financial_Information_ID)
-        cmd.Parameters.Add("@Parent_ID", 8, 0, "Parent_ID")
+        cmd.Parameters.Add("@Parent_ID", 22, 255, "Parent_ID")
         cmd.Parameters("@Parent_ID").Value = SetNull(Parent_ID)
-        cmd.Parameters.Add("@Incentives_ID", 8, 0, "Incentives_ID")
+        cmd.Parameters.Add("@Incentives_ID", 22, 255, "Incentives_ID")
         cmd.Parameters("@Incentives_ID").Value = SetNull(Incentives_ID)
         cmd.Parameters.Add("@School_Type", 22, 10, "School_Type")
         cmd.Parameters("@School_Type").Value = SetNull(School_Type)
@@ -172,7 +172,7 @@ Public Class TBL_Financial_Information
         If Not IsNothing(HttpContext.Current.Session("trans")) Then cmd.Transaction = HttpContext.Current.Session("trans")
         cmd.CommandType = CommandType.Text
         cmd.CommandText = "delete from TBL_Financial_Information where Financial_Information_ID=@previous_Financial_Information_ID"
-        cmd.Parameters.Add("@previous_Financial_Information_ID", 8, 0, "previous_Financial_Information_ID")
+        cmd.Parameters.Add("@previous_Financial_Information_ID", 22, 255, "previous_Financial_Information_ID")
         cmd.Parameters("@previous_Financial_Information_ID").Value = Me.previous_Financial_Information_ID
 
         cmd.ExecuteNonQuery()
@@ -210,7 +210,7 @@ Public Class TBL_Financial_Information
         if Display_Celebration_Price = true then cmd.CommandText = cmd.CommandText & "Celebration_Price,"
         cmd.CommandText = cmd.CommandText.Substring(0, cmd.CommandText.Length - 1)
         cmd.CommandText = cmd.CommandText & " from TBL_Financial_Information where Financial_Information_ID=@Financial_Information_ID"
-        cmd.Parameters.Add("@Financial_Information_ID", 8, 0, "Financial_Information_ID")
+        cmd.Parameters.Add("@Financial_Information_ID", 22, 255, "Financial_Information_ID")
         cmd.Parameters("@Financial_Information_ID").Value = Financial_Information_ID
 
         Dim pl As New sqlDataAdapter, dt As New DataTable, i As Integer
@@ -310,14 +310,14 @@ Public Class TBL_Financial_Information
         cmd.CommandText = cmd.CommandText & " where Financial_Information_ID=@previous_Financial_Information_ID"
 
 
-        cmd.Parameters.Add("@Financial_Information_ID", 8, 0, "Financial_Information_ID")
+        cmd.Parameters.Add("@Financial_Information_ID", 22, 255, "Financial_Information_ID")
         cmd.Parameters("@Financial_Information_ID").Value = SetNull(Financial_Information_ID)
 
-        if I_Display_Parent_ID = true then cmd.Parameters.Add("@Parent_ID", 8, 0, "Parent_ID")
-        if I_Display_Parent_ID = true then cmd.Parameters("@Parent_ID").Value = SetNull(Parent_ID)
+        If I_Display_Parent_ID = True Then cmd.Parameters.Add("@Parent_ID", 22, 255, "Parent_ID")
+        If I_Display_Parent_ID = true then cmd.Parameters("@Parent_ID").Value = SetNull(Parent_ID)
 
-        if I_Display_Incentives_ID = true then cmd.Parameters.Add("@Incentives_ID", 8, 0, "Incentives_ID")
-        if I_Display_Incentives_ID = true then cmd.Parameters("@Incentives_ID").Value = SetNull(Incentives_ID)
+        If I_Display_Incentives_ID = True Then cmd.Parameters.Add("@Incentives_ID", 22, 255, "Incentives_ID")
+        If I_Display_Incentives_ID = true then cmd.Parameters("@Incentives_ID").Value = SetNull(Incentives_ID)
 
         if I_Display_School_Type = true then cmd.Parameters.Add("@School_Type", 22, 10, "School_Type")
         if I_Display_School_Type = true then cmd.Parameters("@School_Type").Value = SetNull(School_Type)

@@ -13,11 +13,11 @@ Public Class TBL_Child_User
     Private I_Display_Child_Name as Boolean = true
     Private I_Display_Child_Surname as Boolean = true
     Private I_Display_Child_Age as Boolean = true
-    Private I_Display_Child_Password as Boolean = true
+    Private I_Display_Child_Password as Boolean = True
 
-    Public previous_Child_ID as nullable(of System.Int32)
+    Public previous_Child_ID As System.String
 
-    Public Child_ID as nullable(of System.Int32)
+    Public Child_ID As System.String
     Public Child_Name as System.String
     Public Child_Surname as System.String
     Public Child_Age as nullable(of System.Int32)
@@ -41,7 +41,7 @@ Public Class TBL_Child_User
         cmd.CommandText = "insert into TBL_Child_User (Child_ID,Child_Name,Child_Surname,Child_Age,Child_Password)"
         cmd.CommandText = cmd.CommandText & "values(@Child_ID,@Child_Name,@Child_Surname,@Child_Age,@Child_Password)"
 
-        cmd.Parameters.Add("@Child_ID", 8, 0, "Child_ID")
+        cmd.Parameters.Add("@Child_ID", 22, 255, "Child_ID")
         cmd.Parameters("@Child_ID").Value = SetNull(Child_ID)
         cmd.Parameters.Add("@Child_Name", 22, 50, "Child_Name")
         cmd.Parameters("@Child_Name").Value = SetNull(Child_Name)
@@ -64,7 +64,7 @@ Public Class TBL_Child_User
         If Not IsNothing(HttpContext.Current.Session("trans")) Then cmd.Transaction = HttpContext.Current.Session("trans")
         cmd.CommandType = CommandType.Text
         cmd.CommandText = "delete from TBL_Child_User where Child_ID=@previous_Child_ID"
-        cmd.Parameters.Add("@previous_Child_ID", 8, 0, "previous_Child_ID")
+        cmd.Parameters.Add("@previous_Child_ID", 22, 255, "previous_Child_ID")
         cmd.Parameters("@previous_Child_ID").Value = Me.previous_Child_ID
 
         cmd.ExecuteNonQuery()
@@ -84,7 +84,7 @@ Public Class TBL_Child_User
         if Display_Child_Password = true then cmd.CommandText = cmd.CommandText & "Child_Password,"
         cmd.CommandText = cmd.CommandText.Substring(0, cmd.CommandText.Length - 1)
         cmd.CommandText = cmd.CommandText & " from TBL_Child_User where Child_ID=@Child_ID"
-        cmd.Parameters.Add("@Child_ID", 8, 0, "Child_ID")
+        cmd.Parameters.Add("@Child_ID", 22, 255, "Child_ID")
         cmd.Parameters("@Child_ID").Value = Child_ID
 
         Dim pl As New sqlDataAdapter, dt As New DataTable, i As Integer
@@ -130,7 +130,7 @@ Public Class TBL_Child_User
         cmd.CommandText = cmd.CommandText & " where Child_ID=@previous_Child_ID"
 
 
-        cmd.Parameters.Add("@Child_ID", 8, 0, "Child_ID")
+        cmd.Parameters.Add("@Child_ID", 22, 255, "Child_ID")
         cmd.Parameters("@Child_ID").Value = SetNull(Child_ID)
 
         if I_Display_Child_Name = true then cmd.Parameters.Add("@Child_Name", 22, 50, "Child_Name")
@@ -147,7 +147,7 @@ Public Class TBL_Child_User
 
 
 
-        cmd.Parameters.Add("@previous_Child_ID", 8, 0, "previous_Child_ID")
+        cmd.Parameters.Add("@previous_Child_ID", 22, 255, "previous_Child_ID")
         cmd.Parameters("@previous_Child_ID").Value = Me.previous_Child_ID
 
 

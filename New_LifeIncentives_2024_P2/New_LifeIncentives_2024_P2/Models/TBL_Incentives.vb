@@ -15,12 +15,12 @@ Public Class TBL_Incentives
     Private I_Display_Incentive_Type as Boolean = true
     Private I_Display_Incentive_Increase as Boolean = true
     Private I_Display_Incentive_Decrease as Boolean = true
-    Private I_Display_Incentive_Amount as Boolean = true
+    Private I_Display_Incentive_Amount as Boolean = True
 
-    Public previous_Incentives_ID as nullable(of System.Int32)
+    Public previous_Incentives_ID As System.String
 
-    Public Incentives_ID as nullable(of System.Int32)
-    Public Child_ID as nullable(of System.Int32)
+    Public Incentives_ID As System.String
+    Public Child_ID As System.String
     Public Incentive_Type as System.String
     Public Incentive_Increase as nullable(of System.Int32)
     Public Incentive_Decrease as nullable(of System.Int32)
@@ -45,9 +45,9 @@ Public Class TBL_Incentives
         cmd.CommandText = "insert into TBL_Incentives (Incentives_ID,Child_ID,Incentive_Type,Incentive_Increase,Incentive_Decrease,Incentive_Amount)"
         cmd.CommandText = cmd.CommandText & "values(@Incentives_ID,@Child_ID,@Incentive_Type,@Incentive_Increase,@Incentive_Decrease,@Incentive_Amount)"
 
-        cmd.Parameters.Add("@Incentives_ID", 8, 0, "Incentives_ID")
+        cmd.Parameters.Add("@Incentives_ID", 22, 255, "Incentives_ID")
         cmd.Parameters("@Incentives_ID").Value = SetNull(Incentives_ID)
-        cmd.Parameters.Add("@Child_ID", 8, 0, "Child_ID")
+        cmd.Parameters.Add("@Child_ID", 22, 255, "Child_ID")
         cmd.Parameters("@Child_ID").Value = SetNull(Child_ID)
         cmd.Parameters.Add("@Incentive_Type", 22, 50, "Incentive_Type")
         cmd.Parameters("@Incentive_Type").Value = SetNull(Incentive_Type)
@@ -70,7 +70,7 @@ Public Class TBL_Incentives
         If Not IsNothing(HttpContext.Current.Session("trans")) Then cmd.Transaction = HttpContext.Current.Session("trans")
         cmd.CommandType = CommandType.Text
         cmd.CommandText = "delete from TBL_Incentives where Incentives_ID=@previous_Incentives_ID"
-        cmd.Parameters.Add("@previous_Incentives_ID", 8, 0, "previous_Incentives_ID")
+        cmd.Parameters.Add("@previous_Incentives_ID", 22, 255, "previous_Incentives_ID")
         cmd.Parameters("@previous_Incentives_ID").Value = Me.previous_Incentives_ID
 
         cmd.ExecuteNonQuery()
@@ -91,7 +91,7 @@ Public Class TBL_Incentives
         if Display_Incentive_Amount = true then cmd.CommandText = cmd.CommandText & "Incentive_Amount,"
         cmd.CommandText = cmd.CommandText.Substring(0, cmd.CommandText.Length - 1)
         cmd.CommandText = cmd.CommandText & " from TBL_Incentives where Incentives_ID=@Incentives_ID"
-        cmd.Parameters.Add("@Incentives_ID", 8, 0, "Incentives_ID")
+        cmd.Parameters.Add("@Incentives_ID", 22, 255, "Incentives_ID")
         cmd.Parameters("@Incentives_ID").Value = Incentives_ID
 
         Dim pl As New sqlDataAdapter, dt As New DataTable, i As Integer
@@ -140,11 +140,11 @@ Public Class TBL_Incentives
         cmd.CommandText = cmd.CommandText & " where Incentives_ID=@previous_Incentives_ID"
 
 
-        cmd.Parameters.Add("@Incentives_ID", 8, 0, "Incentives_ID")
+        cmd.Parameters.Add("@Incentives_ID", 22, 255, "Incentives_ID")
         cmd.Parameters("@Incentives_ID").Value = SetNull(Incentives_ID)
 
-        if I_Display_Child_ID = true then cmd.Parameters.Add("@Child_ID", 8, 0, "Child_ID")
-        if I_Display_Child_ID = true then cmd.Parameters("@Child_ID").Value = SetNull(Child_ID)
+        If I_Display_Child_ID = True Then cmd.Parameters.Add("@Child_ID", 22, 255, "Child_ID")
+        If I_Display_Child_ID = true then cmd.Parameters("@Child_ID").Value = SetNull(Child_ID)
 
         if I_Display_Incentive_Type = true then cmd.Parameters.Add("@Incentive_Type", 22, 50, "Incentive_Type")
         if I_Display_Incentive_Type = true then cmd.Parameters("@Incentive_Type").Value = SetNull(Incentive_Type)
@@ -160,7 +160,7 @@ Public Class TBL_Incentives
 
 
 
-        cmd.Parameters.Add("@previous_Incentives_ID", 8, 0, "previous_Incentives_ID")
+        cmd.Parameters.Add("@previous_Incentives_ID", 22, 255, "previous_Incentives_ID")
         cmd.Parameters("@previous_Incentives_ID").Value = Me.previous_Incentives_ID
 
 

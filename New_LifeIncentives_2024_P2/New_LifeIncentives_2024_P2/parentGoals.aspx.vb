@@ -12,7 +12,6 @@ Partial Public Class parentGoals
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As EventArgs) Handles Me.Load
 
-        'DBInterface.connect(ConfigurationManager.ConnectionStrings("conn").ConnectionString)
 
     End Sub
 
@@ -22,7 +21,6 @@ Partial Public Class parentGoals
     Protected Sub Add(sender As Object, e As EventArgs)
 
         Dim sg As New TBL_Set_Goals
-        'DBInterface.connect("conn")
 
         sg.Set_Goals_ID = Guid.NewGuid.ToString
         sg.Category = DropDownList1.SelectedValue

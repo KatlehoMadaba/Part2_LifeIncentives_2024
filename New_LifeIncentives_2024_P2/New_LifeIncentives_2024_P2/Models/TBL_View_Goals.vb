@@ -29,10 +29,10 @@ Public Class TBL_View_Goals
 
     Public previous_Set_Goals_ID as nullable(of System.Int32)
 
-    Public Set_Goals_ID as nullable(of System.Int32)
-    Public Child_ID as nullable(of System.Int32)
-    Public Parent_ID as nullable(of System.Int32)
-    Public Incentives_ID as nullable(of System.Int32)
+    Public Set_Goals_ID As System.String
+    Public Child_ID As System.String
+    Public Parent_ID As System.String
+    Public Incentives_ID As System.String
     Public StartDateTime as nullable(of System.DateTime)
     Public EndDateTime as nullable(of System.DateTime)
     Public Category as System.String
@@ -65,13 +65,13 @@ Public Class TBL_View_Goals
         cmd.CommandText = "insert into TBL_View_Goals (Set_Goals_ID,Child_ID,Parent_ID,Incentives_ID,StartDateTime,EndDateTime,Category,Description,TimePeriod,Amount,Status)"
         cmd.CommandText = cmd.CommandText & "values(@Set_Goals_ID,@Child_ID,@Parent_ID,@Incentives_ID,@StartDateTime,@EndDateTime,@Category,@Description,@TimePeriod,@Amount,@Status)"
 
-        cmd.Parameters.Add("@Set_Goals_ID", 8, 0, "Set_Goals_ID")
+        cmd.Parameters.Add("@Set_Goals_ID", 22, 255, "Set_Goals_ID")
         cmd.Parameters("@Set_Goals_ID").Value = SetNull(Set_Goals_ID)
-        cmd.Parameters.Add("@Child_ID", 8, 0, "Child_ID")
+        cmd.Parameters.Add("@Child_ID", 22, 255, "Child_ID")
         cmd.Parameters("@Child_ID").Value = SetNull(Child_ID)
-        cmd.Parameters.Add("@Parent_ID", 8, 0, "Parent_ID")
+        cmd.Parameters.Add("@Parent_ID", 22, 255, "Parent_ID")
         cmd.Parameters("@Parent_ID").Value = SetNull(Parent_ID)
-        cmd.Parameters.Add("@Incentives_ID", 8, 0, "Incentives_ID")
+        cmd.Parameters.Add("@Incentives_ID", 22, 255, "Incentives_ID")
         cmd.Parameters("@Incentives_ID").Value = SetNull(Incentives_ID)
         cmd.Parameters.Add("@StartDateTime", 4, 0, "StartDateTime")
         cmd.Parameters("@StartDateTime").Value = SetNull(StartDateTime)
@@ -100,7 +100,7 @@ Public Class TBL_View_Goals
         If Not IsNothing(HttpContext.Current.Session("trans")) Then cmd.Transaction = HttpContext.Current.Session("trans")
         cmd.CommandType = CommandType.Text
         cmd.CommandText = "delete from TBL_View_Goals where Set_Goals_ID=@previous_Set_Goals_ID"
-        cmd.Parameters.Add("@previous_Set_Goals_ID", 8, 0, "previous_Set_Goals_ID")
+        cmd.Parameters.Add("@previous_Set_Goals_ID", 22, 255, "previous_Set_Goals_ID")
         cmd.Parameters("@previous_Set_Goals_ID").Value = Me.previous_Set_Goals_ID
 
         cmd.ExecuteNonQuery()
@@ -190,17 +190,17 @@ Public Class TBL_View_Goals
         cmd.CommandText = cmd.CommandText & " where Set_Goals_ID=@previous_Set_Goals_ID"
 
 
-        cmd.Parameters.Add("@Set_Goals_ID", 8, 0, "Set_Goals_ID")
+        cmd.Parameters.Add("@Set_Goals_ID", 22, 255, "Set_Goals_ID")
         cmd.Parameters("@Set_Goals_ID").Value = SetNull(Set_Goals_ID)
 
-        if I_Display_Child_ID = true then cmd.Parameters.Add("@Child_ID", 8, 0, "Child_ID")
-        if I_Display_Child_ID = true then cmd.Parameters("@Child_ID").Value = SetNull(Child_ID)
+        If I_Display_Child_ID = True Then cmd.Parameters.Add("@Child_ID", 22, 255, "Child_ID")
+        If I_Display_Child_ID = true then cmd.Parameters("@Child_ID").Value = SetNull(Child_ID)
 
-        if I_Display_Parent_ID = true then cmd.Parameters.Add("@Parent_ID", 8, 0, "Parent_ID")
-        if I_Display_Parent_ID = true then cmd.Parameters("@Parent_ID").Value = SetNull(Parent_ID)
+        If I_Display_Parent_ID = True Then cmd.Parameters.Add("@Parent_ID", 22, 255, "Parent_ID")
+        If I_Display_Parent_ID = true then cmd.Parameters("@Parent_ID").Value = SetNull(Parent_ID)
 
-        if I_Display_Incentives_ID = true then cmd.Parameters.Add("@Incentives_ID", 8, 0, "Incentives_ID")
-        if I_Display_Incentives_ID = true then cmd.Parameters("@Incentives_ID").Value = SetNull(Incentives_ID)
+        If I_Display_Incentives_ID = True Then cmd.Parameters.Add("@Incentives_ID", 22, 255, "Incentives_ID")
+        If I_Display_Incentives_ID = true then cmd.Parameters("@Incentives_ID").Value = SetNull(Incentives_ID)
 
         if I_Display_StartDateTime = true then cmd.Parameters.Add("@StartDateTime", 4, 0, "StartDateTime")
         if I_Display_StartDateTime = true then cmd.Parameters("@StartDateTime").Value = SetNull(StartDateTime)
@@ -225,7 +225,7 @@ Public Class TBL_View_Goals
 
 
 
-        cmd.Parameters.Add("@previous_Set_Goals_ID", 8, 0, "previous_Set_Goals_ID")
+        cmd.Parameters.Add("@previous_Set_Goals_ID", 22, 255, "previous_Set_Goals_ID")
         cmd.Parameters("@previous_Set_Goals_ID").Value = Me.previous_Set_Goals_ID
 
 

@@ -15,12 +15,12 @@ Public Class TBL_Transactions
     Private I_Display_Transaction_Name as Boolean = true
     Private I_Display_Transaction_Incentive as Boolean = true
     Private I_Display_Transaction_Type as Boolean = true
-    Private I_Display_Transaction_Amount as Boolean = true
+    Private I_Display_Transaction_Amount as Boolean = True
 
-    Public previous_Transaction_ID as nullable(of System.Int32)
+    Public previous_Transaction_ID As System.String
 
-    Public Transaction_ID as nullable(of System.Int32)
-    Public Incentives_ID as nullable(of System.Int32)
+    Public Transaction_ID As System.String
+    Public Incentives_ID As System.String
     Public Transaction_Name as System.String
     Public Transaction_Incentive as nullable(of System.Int32)
     Public Transaction_Type as System.String
@@ -45,9 +45,9 @@ Public Class TBL_Transactions
         cmd.CommandText = "insert into TBL_Transactions (Transaction_ID,Incentives_ID,Transaction_Name,Transaction_Incentive,Transaction_Type,Transaction_Amount)"
         cmd.CommandText = cmd.CommandText & "values(@Transaction_ID,@Incentives_ID,@Transaction_Name,@Transaction_Incentive,@Transaction_Type,@Transaction_Amount)"
 
-        cmd.Parameters.Add("@Transaction_ID", 8, 0, "Transaction_ID")
+        cmd.Parameters.Add("@Transaction_ID", 22, 255, "Transaction_ID")
         cmd.Parameters("@Transaction_ID").Value = SetNull(Transaction_ID)
-        cmd.Parameters.Add("@Incentives_ID", 8, 0, "Incentives_ID")
+        cmd.Parameters.Add("@Incentives_ID", 22, 255, "Incentives_ID")
         cmd.Parameters("@Incentives_ID").Value = SetNull(Incentives_ID)
         cmd.Parameters.Add("@Transaction_Name", 22, 50, "Transaction_Name")
         cmd.Parameters("@Transaction_Name").Value = SetNull(Transaction_Name)
@@ -70,7 +70,7 @@ Public Class TBL_Transactions
         If Not IsNothing(HttpContext.Current.Session("trans")) Then cmd.Transaction = HttpContext.Current.Session("trans")
         cmd.CommandType = CommandType.Text
         cmd.CommandText = "delete from TBL_Transactions where Transaction_ID=@previous_Transaction_ID"
-        cmd.Parameters.Add("@previous_Transaction_ID", 8, 0, "previous_Transaction_ID")
+        cmd.Parameters.Add("@previous_Transaction_ID", 22, 255, "previous_Transaction_ID")
         cmd.Parameters("@previous_Transaction_ID").Value = Me.previous_Transaction_ID
 
         cmd.ExecuteNonQuery()
@@ -91,7 +91,7 @@ Public Class TBL_Transactions
         if Display_Transaction_Amount = true then cmd.CommandText = cmd.CommandText & "Transaction_Amount,"
         cmd.CommandText = cmd.CommandText.Substring(0, cmd.CommandText.Length - 1)
         cmd.CommandText = cmd.CommandText & " from TBL_Transactions where Transaction_ID=@Transaction_ID"
-        cmd.Parameters.Add("@Transaction_ID", 8, 0, "Transaction_ID")
+        cmd.Parameters.Add("@Transaction_ID", 22, 255, "Transaction_ID")
         cmd.Parameters("@Transaction_ID").Value = Transaction_ID
 
         Dim pl As New sqlDataAdapter, dt As New DataTable, i As Integer
@@ -140,11 +140,11 @@ Public Class TBL_Transactions
         cmd.CommandText = cmd.CommandText & " where Transaction_ID=@previous_Transaction_ID"
 
 
-        cmd.Parameters.Add("@Transaction_ID", 8, 0, "Transaction_ID")
+        cmd.Parameters.Add("@Transaction_ID", 22, 255, "Transaction_ID")
         cmd.Parameters("@Transaction_ID").Value = SetNull(Transaction_ID)
 
-        if I_Display_Incentives_ID = true then cmd.Parameters.Add("@Incentives_ID", 8, 0, "Incentives_ID")
-        if I_Display_Incentives_ID = true then cmd.Parameters("@Incentives_ID").Value = SetNull(Incentives_ID)
+        If I_Display_Incentives_ID = True Then cmd.Parameters.Add("@Incentives_ID", 22, 255, "Incentives_ID")
+        If I_Display_Incentives_ID = true then cmd.Parameters("@Incentives_ID").Value = SetNull(Incentives_ID)
 
         if I_Display_Transaction_Name = true then cmd.Parameters.Add("@Transaction_Name", 22, 50, "Transaction_Name")
         if I_Display_Transaction_Name = true then cmd.Parameters("@Transaction_Name").Value = SetNull(Transaction_Name)
@@ -160,7 +160,7 @@ Public Class TBL_Transactions
 
 
 
-        cmd.Parameters.Add("@previous_Transaction_ID", 8, 0, "previous_Transaction_ID")
+        cmd.Parameters.Add("@previous_Transaction_ID", 22, 255, "previous_Transaction_ID")
         cmd.Parameters("@previous_Transaction_ID").Value = Me.previous_Transaction_ID
 
 
