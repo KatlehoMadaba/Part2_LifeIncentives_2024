@@ -19,7 +19,7 @@ Partial Public Class parentGoals
 
 
 
-    Protected Sub Add()
+    Protected Sub Add(sender As Object, e As EventArgs)
 
         Dim sg As New TBL_Set_Goals
         'DBInterface.connect("conn")
@@ -38,10 +38,6 @@ Partial Public Class parentGoals
     End Sub
 
 
-    Protected Sub btnSubmit_Click1(ByVal sender As Object, ByVal e As EventArgs)
-        Add()
-    End Sub
-
 
 
     Private Sub SaveSelectedItemToDatabase(ByVal description As String, ByVal price As Integer, ByVal I_Category As String, ByVal Category As String)
@@ -53,14 +49,6 @@ Partial Public Class parentGoals
     Protected Sub DropDownList1_SelectedIndexChanged(ByVal sender As Object, ByVal e As EventArgs)
 
     End Sub
-
-
-
-
-
-
-
-
 
 End Class
 
