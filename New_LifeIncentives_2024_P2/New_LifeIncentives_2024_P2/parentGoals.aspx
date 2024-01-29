@@ -83,7 +83,7 @@
         }
 
         .form-control{
-            height:auto;;
+            height:auto;
             font-size:large;  
         }
 
@@ -399,7 +399,7 @@
                                                         <asp:BoundField DataField="Amount" HeaderText="Amount" SortExpression="Amount" />
                                                     </Columns>
                                                 </asp:GridView>
-                                                <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:conn %>" SelectCommand="SELECT [StartDateTime], [EndDateTime], [Category], [Description], [TimePeriod], [Amount] FROM [TBL_Set_Goals]"></asp:SqlDataSource>
+                                                <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:conn2 %>" SelectCommand="SELECT [StartDateTime], [EndDateTime], [Category], [Description], [TimePeriod], [Amount] FROM [TBL_Set_Goals]"></asp:SqlDataSource>
 
                                             </div>                                
 
@@ -450,7 +450,7 @@
                                   <asp:BoundField DataField="Task" HeaderText="Task" SortExpression="Task" />
                               </Columns>
                           </asp:GridView>
-                          <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:conn %>" SelectCommand="SELECT [Category], [Task] FROM [TBL_Recommendations]"></asp:SqlDataSource>
+                          <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:conn2 %>" SelectCommand="SELECT [Category], [Task] FROM [TBL_Recommendations]"></asp:SqlDataSource>
                         </div>
                   </div>
                 

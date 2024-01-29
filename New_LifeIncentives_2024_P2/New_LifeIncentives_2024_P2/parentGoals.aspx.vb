@@ -1,8 +1,4 @@
-﻿Imports System.Data.SqlClient
-
-
-
-Public Class TaskItem
+﻿Public Class TaskItem
     Public Property Task As String
     Public Property Price As Integer
 End Class
@@ -16,8 +12,7 @@ Partial Public Class parentGoals
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As EventArgs) Handles Me.Load
 
-
-
+        'DBInterface.connect(ConfigurationManager.ConnectionStrings("conn").ConnectionString)
 
     End Sub
 
@@ -27,7 +22,7 @@ Partial Public Class parentGoals
     Protected Sub Add()
 
         Dim sg As New TBL_Set_Goals
-        DBInterface.connect("conn")
+        'DBInterface.connect("conn")
 
 
         sg.Category = DropDownList1.SelectedValue
@@ -44,7 +39,7 @@ Partial Public Class parentGoals
 
 
     Protected Sub btnSubmit_Click1(ByVal sender As Object, ByVal e As EventArgs)
-
+        Add()
     End Sub
 
 
