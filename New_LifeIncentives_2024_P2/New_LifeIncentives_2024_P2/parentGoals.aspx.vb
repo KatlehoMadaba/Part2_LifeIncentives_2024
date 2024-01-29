@@ -24,7 +24,7 @@ Partial Public Class parentGoals
         Dim sg As New TBL_Set_Goals
         'DBInterface.connect("conn")
 
-
+        sg.Set_Goals_ID = Guid.NewGuid.ToString
         sg.Category = DropDownList1.SelectedValue
         sg.StartDateTime = DateTime.Now
         sg.Description = "Task"

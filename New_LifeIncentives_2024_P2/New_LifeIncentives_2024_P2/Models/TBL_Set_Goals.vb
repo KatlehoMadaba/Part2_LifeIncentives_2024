@@ -25,11 +25,11 @@ Public Class TBL_Set_Goals
     Private I_Display_Description as Boolean = true
     Private I_Display_TimePeriod as Boolean = true
     Private I_Display_Amount as Boolean = true
-    Private I_Display_Status as Boolean = true
+    Private I_Display_Status as Boolean = True
 
-    Public previous_Set_Goals_ID as nullable(of System.Int32)
+    Public previous_Set_Goals_ID As System.String
 
-    Public Set_Goals_ID as nullable(of System.Int32)
+    Public Set_Goals_ID As System.String
     Public Child_ID as nullable(of System.Int32)
     Public Parent_ID as nullable(of System.Int32)
     Public Incentives_ID as nullable(of System.Int32)
@@ -65,7 +65,7 @@ Public Class TBL_Set_Goals
         cmd.CommandText = "insert into TBL_Set_Goals (Set_Goals_ID,Child_ID,Parent_ID,Incentives_ID,StartDateTime,EndDateTime,Category,Description,TimePeriod,Amount,Status)"
         cmd.CommandText = cmd.CommandText & "values(@Set_Goals_ID,@Child_ID,@Parent_ID,@Incentives_ID,@StartDateTime,@EndDateTime,@Category,@Description,@TimePeriod,@Amount,@Status)"
 
-        cmd.Parameters.Add("@Set_Goals_ID", 8, 0, "Set_Goals_ID")
+        cmd.Parameters.Add("@Set_Goals_ID", 22, 0, "Set_Goals_ID")
         cmd.Parameters("@Set_Goals_ID").Value = SetNull(Set_Goals_ID)
         cmd.Parameters.Add("@Child_ID", 8, 0, "Child_ID")
         cmd.Parameters("@Child_ID").Value = SetNull(Child_ID)
