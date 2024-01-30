@@ -95,6 +95,14 @@
     <Content Include="childDashboard.aspx" />
     <Content Include="childGoals.aspx" />
     <Content Include="childLogin.aspx" />
+    <Content Include="I_css\sb-admin-2.css" />
+    <Content Include="I_css\sb-admin-2.min.css" />
+    <Content Include="I_js\demo\chart-area-demo.js" />
+    <Content Include="I_js\demo\chart-bar-demo.js" />
+    <Content Include="I_js\demo\chart-pie-demo.js" />
+    <Content Include="I_js\demo\datatables-demo.js" />
+    <Content Include="I_js\sb-admin-2.js" />
+    <Content Include="I_js\sb-admin-2.min.js" />
     <Content Include="landingPage.aspx" />
     <Content Include="parentDashboard.aspx" />
     <Content Include="parentGoals.aspx" />
