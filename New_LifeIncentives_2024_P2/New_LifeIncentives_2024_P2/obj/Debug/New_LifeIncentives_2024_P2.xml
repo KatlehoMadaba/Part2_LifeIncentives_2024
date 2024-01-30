@@ -37,6 +37,33 @@ New_LifeIncentives_2024_P2
  Returns the Asp log object.
  </summary>
 </member>
+<member name="F:New_LifeIncentives_2024_P2.childDashboard._btnHome">
+<summary>
+btnHome control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:New_LifeIncentives_2024_P2.childDashboard._Image1">
+<summary>
+Image1 control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:New_LifeIncentives_2024_P2.childDashboard._LinkButton1">
+<summary>
+LinkButton1 control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
 <member name="F:New_LifeIncentives_2024_P2.parentGoals._dontAppear">
 <summary>
 dontAppear control.

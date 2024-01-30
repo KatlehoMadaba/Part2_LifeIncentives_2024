@@ -8,8 +8,6 @@ Public Class RevisionSchedule
     Public revisionStage As String
 
 End Class
-
-
 Public Class genfunctions
     Public Shared dtsettings As New DataSet
     Public Shared apppath As String
