@@ -77,41 +77,41 @@ Public Class TBL_Recommendations
     End Sub
 
 
-    Shared Function load(Recommendation_ID as System.Int32) As TBL_Recommendations
-        Dim cmd As New sqlCommand
+    Shared Function load(Recommendation_ID As System.String) As TBL_Recommendations
+        Dim cmd As New SqlCommand
         cmd.Connection = HttpContext.Current.Session("conn")
         If Not IsNothing(HttpContext.Current.Session("trans")) Then cmd.Transaction = HttpContext.Current.Session("trans")
         cmd.CommandType = CommandType.Text
         cmd.CommandText = "select "
         cmd.CommandText = cmd.CommandText & "Recommendation_ID,"
-        if Display_Incentives_ID = true then cmd.CommandText = cmd.CommandText & "Incentives_ID,"
-        if Display_Category = true then cmd.CommandText = cmd.CommandText & "Category,"
-        if Display_Task = true then cmd.CommandText = cmd.CommandText & "Task,"
-        if Display_Default_Price = true then cmd.CommandText = cmd.CommandText & "Default_Price,"
-        if Display_Default_Time = true then cmd.CommandText = cmd.CommandText & "Default_Time,"
+        If Display_Incentives_ID = True Then cmd.CommandText = cmd.CommandText & "Incentives_ID,"
+        If Display_Category = True Then cmd.CommandText = cmd.CommandText & "Category,"
+        If Display_Task = True Then cmd.CommandText = cmd.CommandText & "Task,"
+        If Display_Default_Price = True Then cmd.CommandText = cmd.CommandText & "Default_Price,"
+        If Display_Default_Time = True Then cmd.CommandText = cmd.CommandText & "Default_Time,"
         cmd.CommandText = cmd.CommandText.Substring(0, cmd.CommandText.Length - 1)
         cmd.CommandText = cmd.CommandText & " from TBL_Recommendations where Recommendation_ID=@Recommendation_ID"
         cmd.Parameters.Add("@Recommendation_ID", 22, 255, "Recommendation_ID")
         cmd.Parameters("@Recommendation_ID").Value = Recommendation_ID
 
-        Dim pl As New sqlDataAdapter, dt As New DataTable, i As Integer
+        Dim pl As New SqlDataAdapter, dt As New DataTable, i As Integer
         pl.SelectCommand = cmd
         pl.Fill(dt)
         Dim p As New TBL_Recommendations
         For i = 0 To dt.Rows.Count - 1
-            p.Recommendation_ID = checknull(dt.Rows(i)("Recommendation_ID"))
+            p.Recommendation_ID = checkNull(dt.Rows(i)("Recommendation_ID"))
             p.I_Display_Recommendation_ID = Display_Recommendation_ID
-            if Display_Incentives_ID = true then p.Incentives_ID = checknull(dt.Rows(i)("Incentives_ID"))
+            If Display_Incentives_ID = True Then p.Incentives_ID = checkNull(dt.Rows(i)("Incentives_ID"))
             p.I_Display_Incentives_ID = Display_Incentives_ID
-            if Display_Category = true then p.Category = checknull(dt.Rows(i)("Category"))
+            If Display_Category = True Then p.Category = checkNull(dt.Rows(i)("Category"))
             p.I_Display_Category = Display_Category
-            if Display_Task = true then p.Task = checknull(dt.Rows(i)("Task"))
+            If Display_Task = True Then p.Task = checkNull(dt.Rows(i)("Task"))
             p.I_Display_Task = Display_Task
-            if Display_Default_Price = true then p.Default_Price = checknull(dt.Rows(i)("Default_Price"))
+            If Display_Default_Price = True Then p.Default_Price = checkNull(dt.Rows(i)("Default_Price"))
             p.I_Display_Default_Price = Display_Default_Price
-            if Display_Default_Time = true then p.Default_Time = checknull(dt.Rows(i)("Default_Time"))
+            If Display_Default_Time = True Then p.Default_Time = checkNull(dt.Rows(i)("Default_Time"))
             p.I_Display_Default_Time = Display_Default_Time
-            p.previous_Recommendation_ID = checknull(dt.Rows(i)("Recommendation_ID"))
+            p.previous_Recommendation_ID = checkNull(dt.Rows(i)("Recommendation_ID"))
             p.newinstance = False
             Return p
         Next
