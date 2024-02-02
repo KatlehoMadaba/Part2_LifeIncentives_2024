@@ -12,13 +12,34 @@
 
     <!-- Custom styles for this page -->
     <link href="vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
-</asp:Content>
 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.6/css/jquery.dataTables.min.css" />
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/1.11.6/js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#dataTable').DataTable();
+        });
+    </script>
+
+</asp:Content>
 
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
     <style>
+
+        /* Example media query for smaller screens */
+        @media screen and (max-width: 768px) {
+            .setGoalsCard, .recommend, .card {
+                width: 100%; /* Adjust as needed */
+                margin: 10px;
+            }
+        }
+
 
         body{
             background: url('Media/GoalsWallpaper.jpg') center center fixed;
@@ -26,15 +47,14 @@
         }
 
         .setGoalsCard{
-            width:auto;
+            width:1000px;
             height:contain;
             border: 1px solid #ccc;
             border-radius: 20px;
             overflow: hidden;
-            background-color:ivory;
+            background-color:antiquewhite;
             transition: transform 0.3s;
             margin-top: 90px;
-            margin-left:50px;
          }
 
         .recommend{
@@ -43,7 +63,7 @@
             border: 1px solid #ccc;
             border-radius: 20px;
             overflow: hidden;
-            background-color:ivory;
+            background-color:antiquewhite;
             transition: transform 0.3s;
             margin-top: 90px;
             margin-left:50px;
@@ -94,7 +114,7 @@
 
          .btn1-1 {
                 margin-top:22.5px;
-                background-color: #4CAF50; 
+                background-color: lightgreen; 
                 border: none; /* Remove borders */
                 color: white; /* White text color */
                 padding: 10px 20px; /* Add padding */
@@ -150,7 +170,7 @@
     }
 
     .btn1-1 {
-        background-color: #4CAF50;
+        background-color: lightgreen;
         color: white;
         padding: 10px 15px;
         border: none;
@@ -159,36 +179,8 @@
     }
 
     .btn1-1:hover {
-        background-color: #45a049;
+        background-color: green;
     }
-
-
-
-
-
-    .styledGridView {
-        width: 100%;
-        border-collapse: collapse;
-        margin: 20px 0;
-        font-family: Arial, sans-serif;
-        border: 1px solid #ddd;
-    }
-
-    .styledGridView th, .styledGridView td {
-        padding: 12px;
-        text-align: left;
-        border-bottom: 1px solid #ddd;
-    }
-
-    .styledGridView th {
-        background-color: #f2f2f2;
-    }
-
-    .styledGridView tbody tr:hover {
-        background-color: #f5f5f5;
-    }
-
-
 
 
     </style>
@@ -197,7 +189,7 @@
         <style>
                     /* Topbar styling */
                     .navbar {
-                        background-color: #ffffff; /* White background color */
+                        background-color: #0D986A;
                         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Shadow for a subtle lift */
                     }
 
@@ -227,53 +219,12 @@
          </style>
 
 
-                <nav class="navbar navbar-expand-lg" style="background-color:greenyellow;color:cornflowerblue;">
-                    <!-- Links -->
-                    <ul class="navbar-nav mr-auto">
-                        <li class="nav-item">
-                            <a class="nav-link" href="Admin_Parent.aspx">Parent</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="Admin_Goals.aspx">Goals</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Finance</a>
-                        </li>
-                    </ul>
+                <nav class="navbar navbar-expand-lg" style="background-color:#0D986A;color:floralwhite">
+                    <h1>LifeIncentives</h1>
                 </nav>
 
 
-    <style>
-    /* Add your custom styles here */
-    .w-100 {
-        width: 100%;
-        background-color:blue;
-    }
 
-    .datatable-inner {
-        max-height: 400px; /* Adjust as needed */
-    }
-
-    .datatable-table {
-        width: 100%;
-    }
-
-    .form-outline {
-        margin-bottom: 1rem;
-    }
-
-    .datatable-pagination {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        margin-top: 1rem;
-    }
-
-    .datatable-pagination-buttons {
-        display: flex;
-        gap: 0.5rem;
-    }
-</style>
 
 
 
@@ -294,10 +245,9 @@
 
                                     <div class="setGoalsCard">
                                         <div class="card-body" >
-
                                             <div class="row">
                                                 <center>
-                                                    <div class="col-md-12">
+                                                    <div>
                                                         <h1 class="text-welcome">Set Goals</h1>
                                                     </div>
                                                 </center>
@@ -442,18 +392,88 @@
                                 });
                             </script>         
 
-                  <div style="max-height: 500px; overflow-y: auto;">
-                      <div style="max-width: auto; margin-left: auto; margin-right: auto;">
-                          <asp:GridView ID="GridView2" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource2">
-                              <Columns>
-                                  <asp:BoundField DataField="Category" HeaderText="Category" SortExpression="Category" />
-                                  <asp:BoundField DataField="Task" HeaderText="Task" SortExpression="Task" />
-                              </Columns>
-                          </asp:GridView>
-                          <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:conn2 %>" SelectCommand="SELECT [Category], [Task] FROM [TBL_Recommendations]"></asp:SqlDataSource>
-                        </div>
-                  </div>
-                
+                          <style>
+                                .GridView2 {
+                                    width: 100%;
+                                    border-collapse: collapse;
+                                    margin: 20px 0;
+                                    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+                                }
+
+                                .GridView2 th, .GridView2 td {
+                                    padding: 12px;
+                                    text-align: left;
+                                    border-bottom: 1px solid #ddd;
+                                }
+
+                                .GridView2 th {
+                                    background-color: #f2f2f2;
+                                    font-weight: bold;
+                                }
+
+                                .GridView2 tr:hover {
+                                    background-color: lightgreen;
+                                }
+
+                                .GridView2 tbody {
+                                    overflow-y: auto;
+                                    max-height: 300px; /* Adjust as needed */
+                                }
+
+                                .btnSelect {
+                                    background-color: lightgreen; /* Green */
+                                    color: white;
+                                    border: none;
+                                    padding: 8px 12px;
+                                    text-align: center;
+                                    text-decoration: none;
+                                    display: inline-block;
+                                    font-size: 14px;
+                                    cursor: pointer;
+                                    border-radius: 4px;
+                                }
+
+                                .btnSelect:hover {
+                                    background-color: #45a049; /* Darker Green */
+                                }
+
+                                .GridView2 tr.selected {
+                                    background-color: #a9c4e7; /* Adjust as needed */
+                                }
+                            </style>
+
+                            <div style="max-height: 200px; overflow-y: auto; max-width: auto; margin-left: auto; margin-right: auto;">
+                                <asp:GridView ID="GridView2" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource2" CssClass="GridView2"
+                                    onrowclick="highlightRow">
+                                    <Columns>
+                                        <asp:BoundField DataField="Category" HeaderText="Category" SortExpression="Category" />
+                                        <asp:BoundField DataField="Task" HeaderText="Task" SortExpression="Task" />
+                                        <asp:CommandField ShowSelectButton="True" ItemStyle-BackColor="LightGreen"/>                                    
+                                    </Columns>
+                                </asp:GridView>
+                                <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:conn2 %>"
+                                    SelectCommand="SELECT [Category], [Task] FROM [TBL_Recommendations]"></asp:SqlDataSource>
+                            </div>
+
+
+
+
+                                <div>
+                                    <table id="dataTable" class="display">
+                                        <thead>
+                                            <tr>
+                                                <th>Column1</th>
+                                                <th>Column2</th>
+                                                <!-- Add more columns as needed -->
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <%-- Data will be dynamically added here --%>
+                                        </tbody>
+                                    </table>
+                                </div>
+
+                                 
             </div>
       
     </div>
