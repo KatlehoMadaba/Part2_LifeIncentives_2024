@@ -32,7 +32,12 @@
     <!-- Custom styles for this template-->
     <link href="I_css/sb-admin-2.min.css" rel="stylesheet">
 
-      
+    <style>
+        .active-link {
+            background-color: #0D986A; 
+            color: #fff; 
+        }
+    </style>
 
     <asp:ContentPlaceHolder ID="head" runat="server">
 
@@ -50,7 +55,7 @@
              <div id="childSidebar" runat="server" visible="false">
                    <div class="d-flex flex-column flex-shrink-0 p-3 text-white bg-dark" style="width: 200px; height:100%">
                         <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
-                          <span class="fs-4">Child</span>
+                          <span class="fs-4" style="font-size:50px;font-family: Quicksand, 'Source Sans Pro'">Child</span>
                         </a>
                         <hr>
                         <ul class="nav nav-pills flex-column mb-auto">
@@ -87,9 +92,9 @@
 
 
                 <div id="parentSidebar" runat="server" visible="true">
-                   <div class="d-flex flex-column flex-shrink-0 p-3 text-white bg-success" style="width: 200px;; height:100%">
+                   <div class="d-flex flex-column flex-shrink-0 p-3 text-white" style="width:200px;height:100%;background-color:#002316">
                         <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
-                          <span class="fs-4" style="font-size:25px">Parent</span>
+                          <span class="fs-4" style="font-size:50px;font-family: Quicksand, 'Source Sans Pro'">Parent</span>
                         </a>
                         <hr>
                         <ul class="nav nav-pills flex-column mb-auto">
@@ -122,14 +127,12 @@
                         <hr>
                       </div>
                  </div>
-
             <div>
                 <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
 
                 </asp:ContentPlaceHolder>
             </div>
         </div>
-       
     </form>
 </body>
 </html>

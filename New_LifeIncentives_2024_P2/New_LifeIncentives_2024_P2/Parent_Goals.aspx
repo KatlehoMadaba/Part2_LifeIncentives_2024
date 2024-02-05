@@ -18,17 +18,19 @@
 
 <style>
 
-    .setGoalsCard, .recommend{
-     
-        height:100%;
-        border: 1px solid #ccc;
+    .setGoalsCard, .recommend {
+        height: 100%;
         border-radius: 20px;
         overflow: hidden;
-        background-color:antiquewhite;
         transition: transform 0.3s;
         margin-top: 10px;
-        margin-left: 10px
-       }
+        margin-left: 10px;
+
+        background-color: rgba(255, 255, 255, 0.9); /* Adjust the alpha value for transparency */
+        border: 1px solid rgba(255, 255, 255, 0.5);
+        padding: 15px;
+    }
+
 
 
     .lbl-text {
@@ -38,9 +40,9 @@
     }
 
 
-
     .recommend-container {
-        max-height: 600px;
+        max-height: 500px;
+        max-width: 100%;
         overflow-y: auto;
         max-width: auto;
         margin-left: auto;
@@ -48,37 +50,51 @@
     }
 
     .goals-container {
-    max-height: 400px;
+    max-height: 300px;
     overflow-y: auto;
     max-width: auto;
     margin-left: auto;
     margin-right: auto;
     }
 
+    .btn{
+        background-color:#013220;
+        color:white;
+    }
 
+    .btn:hover{
+        background-color:#0D986A;
+        color:white;
+    }
+
+    .lbl-text{
+        font-family: Quicksand, 'Source Sans Pro';
+        font-size:20px; 
+        color:#013220;
+    }
 
 </style>
 
+
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-        <div class="bg-success" style="color:white;font-family:'Comic Sans MS';font-size:50px">
+        <div class="bg-white" style="font-family: Quicksand, 'Source Sans Pro';font-size:50px; font-weight:700;">
             <center>
-                Set Goals
+                <div style="display:inline-flex">
+                    <div style="color:#013220">Set</div>
+                    <div style="color:#0D986A;margin-left:10px">Goals</div>
+                </div>  
             </center>
         </div>
+ 
                     <!-- Set Goals Section -->
          
-                            <div class="row">
                                 <div style="display:inline-flex">
-                          
-                                        <div class="row">
-                                            <div class="container">
+                                        <div style="max-width:800px">
                                                 <div class="setGoalsCard">
-                                                    <div class="card-body">
                                                         <div class="text-center">
-                                                            <h1 class="text-welcome">Set Goals</h1>
+                                                            <h1 class="text-welcome" style="color:#0D986A;font-family:Quicksand,'Source Sans Pro';font-weight:bolder;">Set Goals</h1>
                                                         </div>
-
                                                         <div class="row">
                                                             <div class="col-md-6">
                                                                 <asp:Label ID="Label2" runat="server" Text="Category" CssClass="lbl-text"></asp:Label>
@@ -105,7 +121,8 @@
                                                                 </div>
                                                             </div>
                                                             <div class="col-md-6 text-center" style="font-size:18px; font-weight:bold;color:#007BFF">
-                                                                <asp:Label ID="lblTotalAmount" runat="server" CssClass="total-amount-label" />
+                                                                <asp:Label ID="lblTotalAmount" runat="server" 
+                                                                    style="font-size:30px;font-family:Quicksand,'Source Sans Pro';color:#013220" />
                                                             </div>
                                                             <div class="col-md-2 text-center">
                                                                 <asp:Button ID="Button1" runat="server" Text="Add" CssClass="btn btn-primary" OnClick="Add" />
@@ -120,9 +137,9 @@
                                                                     <asp:BoundField DataField="EndDateTime" HeaderText="End Date Time" SortExpression="EndDateTime" ItemStyle-CssClass="align-middle" />
                                                                     <asp:BoundField DataField="Category" HeaderText="Category" SortExpression="Category" ItemStyle-CssClass="align-middle" />
                                                                     <asp:BoundField DataField="Description" HeaderText="Task" SortExpression="Description" ItemStyle-CssClass="align-middle" />
-                                                                    <asp:BoundField DataField="TimePeriod" HeaderText="Duaration" SortExpression="TimePeriod" ItemStyle-CssClass="align-middle" DataFormatString="{0} days"/>
+                                                                    <asp:BoundField DataField="TimePeriod" HeaderText="Days" SortExpression="TimePeriod" ItemStyle-CssClass="align-middle" DataFormatString="{0} days"/>
                                                                     <asp:BoundField DataField="Amount" HeaderText="Amount" SortExpression="Amount" ItemStyle-CssClass="align-middle"/>
-                                                                    <asp:CommandField ShowDeleteButton="True" />
+                                                                    <asp:CommandField ShowDeleteButton="True" ControlStyle-CssClass="btn btn-sm"/>
                                                                 </Columns>
                                                             </asp:GridView>
                                                             <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:conn2 %>"
@@ -132,20 +149,15 @@
                                                                   <asp:Parameter Name="Description" Type="String"/>
                                                                </DeleteParameters>
                                                             </asp:SqlDataSource>
-                                                        </div>
-
-                                                    </div>
+                                                        </div>                                          
                                                 </div>
-                                            </div>
-
+                                     
                                         </div>
                                   
-                                        <div class="row">
-                                            <div class="container">
+                                        <div style="max-width:100%">
                                                 <!-- Recommendations Section -->
                                                 <div class="recommend">
-                                                    <div class="card-body">
-                                                        <h1 style="text-align: center;" class="text-welcome">Recommendations</h1>
+                                                        <h1 style="text-align:center;color:#0D986A;font-family: Quicksand,'Source Sans Pro';font-weight:bolder;" class="text-welcome">Recommendations</h1>
                                                         <div class="form-group">
                                                             <asp:TextBox ID="TextBox1" runat="server" CssClass="form-control" placeholder="Search" oninput="searchGridView();"></asp:TextBox>
                                                         </div>
@@ -171,18 +183,17 @@
                                                                     <asp:BoundField DataField="Category" HeaderText="Category" SortExpression="Category" ItemStyle-CssClass="align-middle" />
                                                                     <asp:BoundField DataField="Task" HeaderText="Task" SortExpression="Task" ItemStyle-CssClass="align-middle" />
                                                                     <asp:BoundField DataField="Default_Price" HeaderText="Amount (R)" SortExpression="Task" ItemStyle-CssClass="align-middle"/>
-                                                                    <asp:BoundField DataField="Default_Time" HeaderText="Duration (days)" SortExpression="Category" ItemStyle-CssClass="align-middle"/>
-                                                                    <asp:CommandField ShowSelectButton="True" ItemStyle-BackColor="LightGreen" ControlStyle-CssClass="btn btn-success btn-sm" />
+                                                                    <asp:BoundField DataField="Default_Time" HeaderText="Days" SortExpression="Category" ItemStyle-CssClass="align-middle"/>
+                                                                    <asp:CommandField ShowSelectButton="True" ControlStyle-CssClass="btn btn-sm" />
                                                                 </Columns>
                                                             </asp:GridView>
                                                             <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:conn2 %>" SelectCommand="SELECT [Category], [Task], [Default_Price], [Default_Time] FROM [TBL_Recommendations]"></asp:SqlDataSource>
                                                         </div>
 
-                                                    </div>
                                                 </div>
-                                            </div>
+                                       
                                         </div>
                                   
                                 </div>
-                            </div>
+                           
 </asp:Content>
