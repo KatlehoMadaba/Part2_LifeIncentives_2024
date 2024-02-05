@@ -16,10 +16,33 @@ Partial Public Class Parent_Goals
     Inherits System.Web.UI.Page
 
 
-
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As EventArgs) Handles Me.Load
+        If Not IsPostBack Then
+            CalculateTotalAmount()
+        End If
+    End Sub
 
 
+    Protected Sub GridView1_RowDeleted(ByVal sender As Object, ByVal e As GridViewDeletedEventArgs) Handles GridView1.RowDeleted
+        GridView1.DataBind()
+        CalculateTotalAmount()
+    End Sub
+
+
+    Private Sub CalculateTotalAmount()
+        Dim totalAmount As Decimal = 0
+
+        For Each row As GridViewRow In GridView1.Rows
+            If row.RowType = DataControlRowType.DataRow Then
+                Dim amount As Decimal = 0
+                If Decimal.TryParse(row.Cells(5).Text, amount) Then
+                    totalAmount += amount
+                End If
+            End If
+        Next
+
+        ' Display the total amount somewhere, for example in a Label
+        lblTotalAmount.Text = "Total Amount: R " & totalAmount.ToString("N2")
     End Sub
 
 
@@ -33,7 +56,6 @@ Partial Public Class Parent_Goals
             Dim selectedTask As String = GridView2.SelectedRow.Cells(1).Text
             Dim selectedAmount As Integer = GridView2.SelectedRow.Cells(2).Text
             Dim selectedDays As Integer = GridView2.SelectedRow.Cells(3).Text
-
 
             ' Perform any processing based on the selected data
             ' For example, you might display the selected data in a label
@@ -55,32 +77,41 @@ Partial Public Class Parent_Goals
 
         Dim sg As New TBL_Set_Goals
 
-        sg.Set_Goals_ID = Guid.NewGuid.ToString
-        sg.Category = txtCat.Text
-        sg.StartDateTime = DateTime.Now
-        sg.Description = txtDes.Text
-        sg.Amount = txtPrice.Text
-        sg.TimePeriod = txtDays.Text
+        If Not IsDescriptionExists(txtDes.Text) Then
 
-        Dim currentDate As DateTime = DateTime.Now
-        sg.EndDateTime = currentDate.AddDays(sg.TimePeriod)
+            sg.Set_Goals_ID = Guid.NewGuid.ToString
+            sg.Category = txtCat.Text
+            sg.StartDateTime = DateTime.Now
+            sg.Description = txtDes.Text
+            sg.Amount = txtPrice.Text
+            sg.TimePeriod = txtDays.Text
 
-        sg.update()
-        GridView1.DataBind()
+            Dim currentDate As DateTime = DateTime.Now
+            sg.EndDateTime = currentDate.AddDays(sg.TimePeriod)
 
-    End Sub
+            sg.update()
+            GridView1.DataBind()
+            CalculateTotalAmount()
+        End If
 
-
-
-
-    Private Sub SaveSelectedItemToDatabase(ByVal description As String, ByVal price As Integer, ByVal I_Category As String, ByVal Category As String)
-        Dim Child_IDNo As String = "123"
 
 
     End Sub
 
-    Protected Sub DropDownList1_SelectedIndexChanged(ByVal sender As Object, ByVal e As EventArgs)
 
-    End Sub
+    Private Function IsDescriptionExists(description As String) As Boolean
+        For Each row As GridViewRow In GridView1.Rows
+            If row.RowType = DataControlRowType.DataRow Then
+                If row.Cells(3).Text = description Then
+                    Return True ' Return True if the description exists
+                End If
+            End If
+        Next
+
+        Return False ' Return False if the description doesn't exist
+    End Function
+
+
+
 
 End Class

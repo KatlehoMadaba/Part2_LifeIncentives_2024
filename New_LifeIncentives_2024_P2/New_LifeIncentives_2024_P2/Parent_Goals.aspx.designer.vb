@@ -14,15 +14,6 @@ Option Explicit On
 Partial Public Class Parent_Goals
 
     '''<summary>
-    '''dontAppear control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents dontAppear As Global.System.Web.UI.HtmlControls.HtmlGenericControl
-
-    '''<summary>
     '''Label2 control.
     '''</summary>
     '''<remarks>
@@ -41,13 +32,13 @@ Partial Public Class Parent_Goals
     Protected WithEvents txtCat As Global.System.Web.UI.WebControls.TextBox
 
     '''<summary>
-    '''Label5 control.
+    '''Label6 control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents Label5 As Global.System.Web.UI.WebControls.Label
+    Protected WithEvents Label6 As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
     '''txtDes control.
@@ -59,13 +50,13 @@ Partial Public Class Parent_Goals
     Protected WithEvents txtDes As Global.System.Web.UI.WebControls.TextBox
 
     '''<summary>
-    '''Label6 control.
+    '''Label7 control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents Label6 As Global.System.Web.UI.WebControls.Label
+    Protected WithEvents Label7 As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
     '''txtPrice control.
@@ -95,6 +86,15 @@ Partial Public Class Parent_Goals
     Protected WithEvents txtDays As Global.System.Web.UI.WebControls.TextBox
 
     '''<summary>
+    '''lblTotalAmount control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents lblTotalAmount As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
     '''Button1 control.
     '''</summary>
     '''<remarks>
@@ -102,24 +102,6 @@ Partial Public Class Parent_Goals
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents Button1 As Global.System.Web.UI.WebControls.Button
-
-    '''<summary>
-    '''txtSearch control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents txtSearch As Global.System.Web.UI.WebControls.TextBox
-
-    '''<summary>
-    '''btnSearch control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents btnSearch As Global.System.Web.UI.WebControls.Button
 
     '''<summary>
     '''GridView1 control.
@@ -147,15 +129,6 @@ Partial Public Class Parent_Goals
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents TextBox1 As Global.System.Web.UI.WebControls.TextBox
-
-    '''<summary>
-    '''Button2 control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents Button2 As Global.System.Web.UI.WebControls.Button
 
     '''<summary>
     '''GridView2 control.
