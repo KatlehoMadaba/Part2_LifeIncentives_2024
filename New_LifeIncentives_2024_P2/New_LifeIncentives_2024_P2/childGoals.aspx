@@ -38,7 +38,7 @@
                                  <asp:BoundField DataField="Description" HeaderText="Description" SortExpression="Description" />
                                  <asp:BoundField DataField="TimePeriod" HeaderText="TimePeriod" SortExpression="TimePeriod" />
                                  <asp:BoundField DataField="Amount" HeaderText="Amount" SortExpression="Amount" />
-                                 <asp:CommandField ShowDeleteButton="True" ControlStyle-CssClass="btn btn-sm badge bg-success"/>
+                                 <asp:CommandField ShowDeleteButton="True" ControlStyle-CssClass="btn btn-sm badge bg-success" DeleteText="Complete" />
                              </Columns>
                          </asp:GridView>
                                     
