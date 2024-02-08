@@ -30,8 +30,10 @@
                   <div class="row">
                      <div class="col">
 
-                         <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource2" EmptyDataText="No data available" BorderColor="#006600" CellSpacing="40" CellPadding="20" CssClass="table table-striped table-borderless table-" EditRowStyle-HorizontalAlign="Center" EditRowStyle-VerticalAlign="Middle" HeaderStyle-HorizontalAlign="Center" HeaderStyle-VerticalAlign="Middle">
+                         <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource2" EmptyDataText="No data available" BorderColor="#006600" CellSpacing="40" CellPadding="20" CssClass="table table-striped table-borderless table-" EditRowStyle-HorizontalAlign="Center" EditRowStyle-VerticalAlign="Middle" HeaderStyle-HorizontalAlign="Center" HeaderStyle-VerticalAlign="Middle" HeaderStyle-CssClass="thead-light">
+                             <HeaderStyle CssClass="thead-light"/>
                              <Columns>
+
                                  <asp:BoundField DataField="StartDateTime" HeaderText="StartDateTime" SortExpression="StartDateTime" />
                                  <asp:BoundField DataField="EndDateTime" HeaderText="EndDateTime" SortExpression="EndDateTime" />
                                  <asp:BoundField DataField="Category" HeaderText="Category" SortExpression="Category" />
