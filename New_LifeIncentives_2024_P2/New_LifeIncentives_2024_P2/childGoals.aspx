@@ -30,7 +30,7 @@
                   <div class="row">
                      <div class="col">
 
-                         <asp:GridView ID="GridView2" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource1" EmptyDataText="No data available" BorderColor="#006600" CellSpacing="40" CellPadding="20" CssClass="table table-striped table-borderless table-">
+                         <asp:GridView ID="GridView2" runat="server" AutoGenerateColumns="False" DataKeyNames="Description" DataSourceID="SqlDataSource1" EmptyDataText="No data available" BorderColor="#006600" CellSpacing="40" CellPadding="20" CssClass="table table-striped table-borderless table-">
                              <Columns>
                                  <asp:BoundField DataField="StartDateTime" HeaderText="StartDateTime" SortExpression="StartDateTime" />
                                  <asp:BoundField DataField="EndDateTime" HeaderText="EndDateTime" SortExpression="EndDateTime" />
@@ -38,10 +38,17 @@
                                  <asp:BoundField DataField="Description" HeaderText="Description" SortExpression="Description" />
                                  <asp:BoundField DataField="TimePeriod" HeaderText="TimePeriod" SortExpression="TimePeriod" />
                                  <asp:BoundField DataField="Amount" HeaderText="Amount" SortExpression="Amount" />
+                                 <asp:CommandField ShowDeleteButton="True" ControlStyle-CssClass="btn btn-sm"/>
                              </Columns>
                          </asp:GridView>
                                     
-                         <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:conn2 %>" SelectCommand="SELECT [StartDateTime], [EndDateTime], [Category], [Description], [TimePeriod], [Amount] FROM [TBL_Set_Goals]"></asp:SqlDataSource>
+                         <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:conn2 %>" 
+                             SelectCommand="SELECT [StartDateTime], [EndDateTime], [Category], [Description], [TimePeriod], [Amount] FROM [TBL_Set_Goals]"
+                             DeleteCommand="DELETE FROM [TBL_Set_Goals] WHERE [Description] = @Description">
+                             <DeleteParameters>
+                               <asp:Parameter Name="Description" Type="String"/>
+                            </DeleteParameters>
+                         </asp:SqlDataSource>
                                     
                                     
                      </div>
