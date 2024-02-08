@@ -224,7 +224,6 @@ Public Class TBL_Set_Goals
         if I_Display_Status = true then cmd.Parameters("@Status").Value = SetNull(Status)
 
 
-
         cmd.Parameters.Add("@previous_Set_Goals_ID", 22, 255, "previous_Set_Goals_ID")
         cmd.Parameters("@previous_Set_Goals_ID").Value = Me.previous_Set_Goals_ID
 
