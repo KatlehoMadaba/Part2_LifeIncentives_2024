@@ -34,51 +34,28 @@
                                 <div class="form-group row">
                                     <div class="col-sm-6 mb-3 mb-sm-0">
                                         <asp:TextBox class="form-control form-control-user" id="exampleFirstName"  runat="server"
-                                            placeholder="First Name"> <%#Eval(CStr("Parent_Name")) %></asp:TextBox>
+                                            placeholder="First Name" Text=<%#Eval(CStr("Parent_Name")) %>></asp:TextBox>
                                     </div>
                                     <div class="col-sm-6">
                                         <asp:TextBox class="form-control form-control-user" id="exampleLastName"  runat="server"
-                                            placeholder="Last Name"> <%#Eval(CStr("Parent_Surname")) %>></asp:TextBox>
+                                            placeholder="Last Name" Text=<%#Eval(CStr("Parent_Surname")) %>></asp:TextBox>
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                        <asp:TextBox class="form-control form-control-user" id="exampleInputEmail"  runat="server">
-                                            placeholder="Email Address"> <%#Eval(CStr("Email")) %>></asp:TextBox>
-                                </div>
-                                <div class="form-group">
-                                    <asp:TextBox class="form-control form-control-user" id="PhoneNumber"  runat="server">
-                                        placeholder="Phone Numbers" ></asp:TextBox>
+                                        <asp:TextBox class="form-control form-control-user" id="exampleInputEmail"  runat="server"
+                                            placeholder="Email Address" Text=<%#Eval(CStr("Email")) %>></asp:TextBox>
                                 </div>
                                 <div class="form-group row">
                                     <div class="col-sm-6 mb-3 mb-sm-0">
                                     <asp:TextBox class="form-control form-control-user" id="ChildName"  runat="server"
-                                        placeholder="Child's First Name"> <%#Eval(CStr("Child_Name")) %>></asp:TextBox>
+                                        placeholder="Child's First Name" Text=<%#Eval(CStr("Child_Name")) %>></asp:TextBox>
                                     </div>
-                                    <div class="col-sm-6">
-                                    <asp:TextBox class="form-control form-control-user" id="ChildLastname"  runat="server"
-                                        placeholder="Child's Last Name"> <%#Eval(CStr("Child_Surname")) %>></asp:TextBox>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <asp:TextBox class="form-control form-control-user" id="ChildEmail"  runat="server"
-                                        placeholder="Child's Email Address" ></asp:TextBox>
-                                </div>
-                                <div class="form-group">
-                                    <asp:TextBox class="form-control form-control-user" id="ChildPhoneNumber"  runat="server"
-                                        placeholder="Child's Phone Number" ></asp:TextBox>
-                                </div>
-
-                                <div class="form-group row">
                                     <div class="col-sm-6 mb-3 mb-sm-0">
                                     <asp:TextBox textmode="Password" class="form-control form-control-user" id="exampleInputPassword"  runat="server"
                                         placeholder="Password" ></asp:TextBox>
                                     </div>
-                                    <div class="col-sm-6">
-                                    <asp:TextBox textmode="Password" class="form-control form-control-user" id="exampleRepeatPassword"  runat="server"
-                                        placeholder="Password" ></asp:TextBox>
-                                    </div>
                                 </div>
-                                <asp:Button ID="Button1" class="btn btn-primary btn-user btn-block" runat="server" Text=" Register Account" onclientclick='signUp.Register()'/>
+                                <asp:Button ID="Button1" class="btn btn-primary btn-user btn-block" runat="server" Text=" Register Account" OnClick="Register"/>
                                 <hr>
                                 <a href="index.html" class="btn btn-google btn-user btn-block">
                                     <i class="fab fa-google fa-fw"></i> Register with Google

@@ -41,15 +41,6 @@ Partial Public Class signUp
     Protected WithEvents exampleInputEmail As Global.System.Web.UI.WebControls.TextBox
 
     '''<summary>
-    '''PhoneNumber control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents PhoneNumber As Global.System.Web.UI.WebControls.TextBox
-
-    '''<summary>
     '''ChildName control.
     '''</summary>
     '''<remarks>
@@ -59,33 +50,6 @@ Partial Public Class signUp
     Protected WithEvents ChildName As Global.System.Web.UI.WebControls.TextBox
 
     '''<summary>
-    '''ChildLastname control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents ChildLastname As Global.System.Web.UI.WebControls.TextBox
-
-    '''<summary>
-    '''ChildEmail control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents ChildEmail As Global.System.Web.UI.WebControls.TextBox
-
-    '''<summary>
-    '''ChildPhoneNumber control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents ChildPhoneNumber As Global.System.Web.UI.WebControls.TextBox
-
-    '''<summary>
     '''exampleInputPassword control.
     '''</summary>
     '''<remarks>
@@ -93,15 +57,6 @@ Partial Public Class signUp
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents exampleInputPassword As Global.System.Web.UI.WebControls.TextBox
-
-    '''<summary>
-    '''exampleRepeatPassword control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents exampleRepeatPassword As Global.System.Web.UI.WebControls.TextBox
 
     '''<summary>
     '''Button1 control.
