@@ -30,7 +30,7 @@
                   <div class="row">
                      <div class="col">
 
-                         <asp:GridView ID="GridView2" runat="server" AutoGenerateColumns="False" DataKeyNames="Description" DataSourceID="SqlDataSource1" EmptyDataText="No data available" BorderColor="#006600" CellSpacing="40" CellPadding="20" CssClass="table table-striped table-borderless table-">
+                         <asp:GridView ID="GridView2" runat="server" AutoGenerateColumns="False" DataKeyNames="Description" DataSourceID="SqlDataSource1" EmptyDataText="No tasks available" BorderColor="#006600" CellSpacing="40" CellPadding="20" CssClass="table table-striped table-borderless table-">
                              <Columns>
                                  <asp:BoundField DataField="StartDateTime" HeaderText="StartDateTime" SortExpression="StartDateTime" />
                                  <asp:BoundField DataField="EndDateTime" HeaderText="EndDateTime" SortExpression="EndDateTime" />
