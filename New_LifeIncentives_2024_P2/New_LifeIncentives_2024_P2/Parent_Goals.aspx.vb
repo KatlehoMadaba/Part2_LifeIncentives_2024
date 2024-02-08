@@ -9,19 +9,14 @@ Public Class TaskItem
 End Class
 
 
-
-
-
 Partial Public Class Parent_Goals
     Inherits System.Web.UI.Page
-
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As EventArgs) Handles Me.Load
         If Not IsPostBack Then
             CalculateTotalAmount()
         End If
     End Sub
-
 
     Protected Sub GridView1_RowDeleted(ByVal sender As Object, ByVal e As GridViewDeletedEventArgs) Handles GridView1.RowDeleted
         GridView1.DataBind()
@@ -48,7 +43,6 @@ Partial Public Class Parent_Goals
 
     Protected Sub GridView2_SelectedIndexChanged(sender As Object, e As EventArgs) Handles GridView2.SelectedIndexChanged
 
-
         ' Check if any row is selected
         If GridView2.SelectedIndex >= 0 Then
             ' Access the data from the selected row
@@ -57,10 +51,6 @@ Partial Public Class Parent_Goals
             Dim selectedAmount As Integer = GridView2.SelectedRow.Cells(2).Text
             Dim selectedDays As Integer = GridView2.SelectedRow.Cells(3).Text
 
-            ' Perform any processing based on the selected data
-            ' For example, you might display the selected data in a label
-
-            ' Clear the selected index to avoid issues on subsequent postbacks
             GridView2.SelectedIndex = -1
 
             txtCat.Text = selectedCategory
@@ -72,10 +62,9 @@ Partial Public Class Parent_Goals
     End Sub
 
 
+    Dim sg As New TBL_Set_Goals
 
     Protected Sub Add(sender As Object, e As EventArgs)
-
-        Dim sg As New TBL_Set_Goals
 
         If Not IsDescriptionExists(txtDes.Text) Then
 
@@ -88,16 +77,25 @@ Partial Public Class Parent_Goals
 
             Dim currentDate As DateTime = DateTime.Now
             sg.EndDateTime = currentDate.AddDays(sg.TimePeriod)
-
+            sg.Status = "Selected"
             sg.update()
             GridView1.DataBind()
             CalculateTotalAmount()
         End If
 
-
-
     End Sub
 
+    Protected Sub Submit(sender As Object, e As EventArgs)
+
+        Dim cols As List(Of TBL_Set_Goals) = TBL_Set_Goals.listall($" where Status='Selected'") ' retrieve each row as a list. specify which rows you want in the ( )
+        For Each sg As TBL_Set_Goals In cols ' loop through each row
+            sg.Status = "Incomplete" ' assign value to specific variable
+            sg.update() ' update the database
+            GridView1.DataBind() ' update the gridview
+            CalculateTotalAmount() ' ignore
+        Next
+
+    End Sub
 
     Private Function IsDescriptionExists(description As String) As Boolean
         For Each row As GridViewRow In GridView1.Rows
@@ -110,8 +108,6 @@ Partial Public Class Parent_Goals
 
         Return False ' Return False if the description doesn't exist
     End Function
-
-
 
 
 End Class

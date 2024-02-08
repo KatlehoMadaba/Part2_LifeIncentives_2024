@@ -73,6 +73,7 @@
         color:#013220;
     }
 
+
 </style>
 
 
@@ -83,7 +84,8 @@
                 <div style="display:inline-flex">
                     <div style="color:#013220">Set</div>
                     <div style="color:#0D986A;margin-left:10px">Goals</div>
-                </div>  
+                </div>
+                <img style="height:50px" src="I_img/SetGoals.png" />                
             </center>
         </div>
  
@@ -93,7 +95,7 @@
                                         <div style="max-width:800px">
                                                 <div class="setGoalsCard">
                                                         <div class="text-center">
-                                                            <h1 class="text-welcome" style="color:#0D986A;font-family:Quicksand,'Source Sans Pro';font-weight:bolder;">Set Goals</h1>
+                                                            <h1 class="text-welcome" style="color:#0D986A;font-family:Quicksand,'Source Sans Pro';font-weight:bolder;">Goals</h1>
                                                         </div>
                                                         <div class="row">
                                                             <div class="col-md-6">
@@ -127,28 +129,35 @@
                                                             <div class="col-md-2 text-center">
                                                                 <asp:Button ID="Button1" runat="server" Text="Add" CssClass="btn btn-primary" OnClick="Add" />
                                                             </div>
+                                                            <div class="col-md-2 text-center">
+                                                                <asp:Button ID="Button2" runat="server" Text="Submit" CssClass="btn btn-primary" OnClick="Submit" />
+                                                            </div>
                                                         </div>
                                                         <div class="goals-container table-responsive" style="margin-top:10px">
-                                                            <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="Description" DataSourceID="SqlDataSource1" CssClass="table table-bordered table-striped"
-                                                                onclick="GridView1_RowDeleted">
-                                                                <HeaderStyle CssClass="thead-light"/>
-                                                                <Columns>
-                                                                    <asp:BoundField DataField="StartDateTime" HeaderText="Start Date Time" SortExpression="StartDateTime" ItemStyle-CssClass="align-middle" />
-                                                                    <asp:BoundField DataField="EndDateTime" HeaderText="End Date Time" SortExpression="EndDateTime" ItemStyle-CssClass="align-middle" />
-                                                                    <asp:BoundField DataField="Category" HeaderText="Category" SortExpression="Category" ItemStyle-CssClass="align-middle" />
-                                                                    <asp:BoundField DataField="Description" HeaderText="Task" SortExpression="Description" ItemStyle-CssClass="align-middle" />
-                                                                    <asp:BoundField DataField="TimePeriod" HeaderText="Days" SortExpression="TimePeriod" ItemStyle-CssClass="align-middle" DataFormatString="{0} days"/>
-                                                                    <asp:BoundField DataField="Amount" HeaderText="Amount" SortExpression="Amount" ItemStyle-CssClass="align-middle"/>
-                                                                    <asp:CommandField ShowDeleteButton="True" ControlStyle-CssClass="btn btn-sm"/>
-                                                                </Columns>
+                                                           <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="Description" DataSourceID="SqlDataSource1" CssClass="table table-bordered table-striped">
+                                                            <HeaderStyle CssClass="thead-light" />
+                                                            <Columns>
+                                                                <asp:BoundField DataField="StartDateTime" HeaderText="Start Date Time" SortExpression="StartDateTime" ItemStyle-CssClass="align-middle" />
+                                                                <asp:BoundField DataField="EndDateTime" HeaderText="End Date Time" SortExpression="EndDateTime" ItemStyle-CssClass="align-middle" />
+                                                                <asp:BoundField DataField="Category" HeaderText="Category" SortExpression="Category" ItemStyle-CssClass="align-middle" />
+                                                                <asp:BoundField DataField="Description" HeaderText="Task" SortExpression="Description" ItemStyle-CssClass="align-middle" />
+                                                                <asp:BoundField DataField="TimePeriod" HeaderText="Days" SortExpression="TimePeriod" ItemStyle-CssClass="align-middle" DataFormatString="{0} days" />
+                                                                <asp:BoundField DataField="Amount" HeaderText="Amount" SortExpression="Amount" ItemStyle-CssClass="align-middle" />
+                                                                <asp:CommandField ShowDeleteButton="True" ControlStyle-CssClass="btn btn-sm" />
+                                                            </Columns>
                                                             </asp:GridView>
+
                                                             <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:conn2 %>"
-                                                                SelectCommand="SELECT [StartDateTime], [EndDateTime], [Category], [Description], [TimePeriod], [Amount] FROM [TBL_Set_Goals]"
+                                                                SelectCommand="SELECT [StartDateTime], [EndDateTime], [Category], [Description], [TimePeriod], [Amount], [Status] FROM [TBL_Set_Goals] WHERE [Status] = @Status"
                                                                 DeleteCommand="DELETE FROM [TBL_Set_Goals] WHERE [Description] = @Description">
+                                                                <SelectParameters>
+                                                                    <asp:Parameter Name="Status" Type="String" DefaultValue="Selected" />
+                                                                </SelectParameters>
                                                                 <DeleteParameters>
-                                                                  <asp:Parameter Name="Description" Type="String"/>
-                                                               </DeleteParameters>
+                                                                    <asp:Parameter Name="Description" Type="String" />
+                                                                </DeleteParameters>
                                                             </asp:SqlDataSource>
+
                                                         </div>                                          
                                                 </div>
                                      
