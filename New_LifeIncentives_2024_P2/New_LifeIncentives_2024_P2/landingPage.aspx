@@ -105,7 +105,7 @@
                  </div>
               </div>
          </div>
-            <a href="signUp.aspx" class="btn-book animated fadeInUp scrollto">Sign Up<a/>
+            <a href="signUp.aspx" class="btn-book animated fadeInUp scrollto">Sign Up</a>
           </div>
         </div>
       </div>
@@ -113,6 +113,7 @@
   </section><!-- End Hero -->
 
   <main id="main">
+      </main>
 
    <div id="preloader"></div>
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
