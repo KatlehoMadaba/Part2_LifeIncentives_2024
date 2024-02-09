@@ -1,6 +1,9 @@
-﻿<%@ Page Title="" Language="vb" AutoEventWireup="false" MasterPageFile="~/Site1.Master" CodeBehind="landingPage.aspx.vb" Inherits="New_LifeIncentives_2024_P2.landingPage" %>
-<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-  <meta charset="utf-8">
+﻿<%@ Language="vb" AutoEventWireup="false" CodeBehind="landingPage.aspx.vb" Inherits="New_LifeIncentives_2024_P2.landingPage" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">  <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
   <title>Restaurantly Bootstrap Template - Index</title>
@@ -33,9 +36,13 @@
   * Author: BootstrapMade.com
   * License: https://bootstrapmade.com/license/
   ======================================================== -->
-</asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <style>
+</head>
+    
+<body>
+<form id="form1" runat="server">
+
+
+<style>
 .dropdown {
   position: relative;
   display: inline-block;
@@ -129,4 +136,6 @@
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
 
-</asp:Content>
+    </form>
+</body>
+</html>
