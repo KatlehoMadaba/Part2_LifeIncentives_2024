@@ -168,8 +168,10 @@ Public Class Questions
 
         fi.update()
 
+        Response.Redirect("Login.aspx")
 
     End Sub
+
 
 
 

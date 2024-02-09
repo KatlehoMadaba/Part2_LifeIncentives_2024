@@ -33,7 +33,7 @@
                     <div class="col-lg-7">
                         <div class="p-5">
                             <div class="text-center">
-                                <h1 class="h4 text-gray-900 mb-4">Create an Account!</h1>
+                                <h1 class="h4 text-gray-900 mb-4">Create a Parent account</h1>
                             </div>
                                 <div class="form-group row">
                                     <div class="col-sm-6 mb-3 mb-sm-0">
@@ -55,7 +55,7 @@
                                         placeholder="Password" ></asp:TextBox>
                                     </div>
                                 </div>
-                                <asp:Button ID="Button1" class="btn btn-primary btn-user btn-block" runat="server" Text="Register Account" OnClick="ParentRegister"/>
+                                <asp:Button ID="Button1" class="btn btn-primary btn-user btn-block" style="background-color:#0D986A" runat="server" Text="Questionaire" OnClick="ParentRegister"/>
 
                             <div class="text-center">
                                 <a class="small" href="forgot-password.html">Forgot Password?</a>

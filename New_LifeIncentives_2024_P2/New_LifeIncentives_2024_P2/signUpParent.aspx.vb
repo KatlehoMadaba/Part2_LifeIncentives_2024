@@ -24,6 +24,9 @@
 
 
         pu.update()
+
+        Response.Redirect("Questions.aspx")
+
     End Sub
 
 

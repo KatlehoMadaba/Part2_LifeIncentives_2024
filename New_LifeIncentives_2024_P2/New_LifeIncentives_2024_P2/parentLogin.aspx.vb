@@ -11,7 +11,7 @@ Public Class parentLogin
     End Sub
 
 
-    Protected Sub LoginClick(sender As Object, e As EventArgs)
+    Protected Sub Login_Click(sender As Object, e As EventArgs)
         Dim Email As String = txtEmail.Text
         Dim Password As String = txtPassword.Text
 
