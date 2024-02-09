@@ -11,50 +11,59 @@ Option Strict On
 Option Explicit On
 
 
-Partial Public Class parentLogin
+Partial Public Class signUpParent
 
     '''<summary>
-    '''LoginForm control.
+    '''form1 control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents LoginForm As Global.System.Web.UI.HtmlControls.HtmlForm
+    Protected WithEvents form1 As Global.System.Web.UI.HtmlControls.HtmlForm
 
     '''<summary>
-    '''txtEmail control.
+    '''FirstName control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents txtEmail As Global.System.Web.UI.WebControls.TextBox
+    Protected WithEvents FirstName As Global.System.Web.UI.WebControls.TextBox
 
     '''<summary>
-    '''txtPassword control.
+    '''LastName control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents txtPassword As Global.System.Web.UI.WebControls.TextBox
+    Protected WithEvents LastName As Global.System.Web.UI.WebControls.TextBox
 
     '''<summary>
-    '''LoginButton control.
+    '''Email control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents LoginButton As Global.System.Web.UI.WebControls.Button
+    Protected WithEvents Email As Global.System.Web.UI.WebControls.TextBox
 
     '''<summary>
-    '''Message control.
+    '''Password control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents Message As Global.System.Web.UI.WebControls.Label
+    Protected WithEvents Password As Global.System.Web.UI.WebControls.TextBox
+
+    '''<summary>
+    '''Button1 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents Button1 As Global.System.Web.UI.WebControls.Button
 End Class

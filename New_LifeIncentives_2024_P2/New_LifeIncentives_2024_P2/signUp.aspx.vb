@@ -8,23 +8,27 @@ Public Class signUp
 
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
-        If Not IsPostBack Then
-
+        If IsNothing(HttpContext.Current.Session("conn")) Then
+            HttpContext.Current.Session("conn") = DBInterface.connect(ConfigurationManager.ConnectionStrings("conn2").ConnectionString)
         End If
     End Sub
 
     Protected Sub Register(sender As Object, e As EventArgs)
 
-        pu.Parent_ID = Guid.NewGuid.ToString
-        pu.Parent_Name = exampleFirstName.Text
-        pu.Parent_Surname = exampleLastName.Text
-        pu.Password = exampleInputPassword.Text
-        pu.Email = exampleInputEmail.Text
-        pu.Employment = "Yes"
-        cu.Child_Name = ChildName.Text
 
-        pu.update()
+
+        cu.Child_ID = ChildID.Text
+        cu.Child_Name = ChildName.Text
+        cu.Child_Surname = ChildSurname.Text
+        cu.Child_Age = Integer.Parse(ChildAge.Text)
+        cu.Child_Password = ChildPassword.Text
+
+        Session("childID") = cu.Child_ID
+
         cu.update()
+
+        Response.Redirect("signUpParent.aspx")
+
     End Sub
 
 

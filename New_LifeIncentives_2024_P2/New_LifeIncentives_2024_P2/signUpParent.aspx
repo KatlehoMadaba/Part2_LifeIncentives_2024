@@ -1,4 +1,4 @@
-﻿<%@ Language="vb" AutoEventWireup="false" CodeBehind="signUp.aspx.vb" Inherits="New_LifeIncentives_2024_P2.signUp" %>
+﻿<%@ Page Language="vb" AutoEventWireup="false" CodeBehind="signUpParent.aspx.vb" Inherits="New_LifeIncentives_2024_P2.signUpParent" %>
 
 <!DOCTYPE html>
 
@@ -36,33 +36,26 @@
                                 <h1 class="h4 text-gray-900 mb-4">Create an Account!</h1>
                             </div>
                                 <div class="form-group row">
-                                     <div class="col-sm-6 mb-3 mb-sm-0">
-                                    <asp:TextBox class="form-control form-control-user" id="ChildID"  runat="server"
-                                        placeholder="Child ID"></asp:TextBox>
+                                    <div class="col-sm-6 mb-3 mb-sm-0">
+                                        <asp:TextBox class="form-control form-control-user" id="FirstName"  runat="server"
+                                            placeholder="First Name"></asp:TextBox>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <asp:TextBox class="form-control form-control-user" id="LastName"  runat="server"
+                                            placeholder="Last Name"></asp:TextBox>
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <div class="col-sm-6 mb-3 mb-sm-0">
-                                    <asp:TextBox class="form-control form-control-user" id="ChildName"  runat="server"
-                                        placeholder="Child's First Name"></asp:TextBox>
+                                        <asp:TextBox class="form-control form-control-user" id="Email"  runat="server"
+                                            placeholder="Email Address" ></asp:TextBox>
                                     </div>
                                     <div class="col-sm-6 mb-3 mb-sm-0">
-                                    <asp:TextBox class="form-control form-control-user" id="ChildSurname"  runat="server"
-                                        placeholder="Child's Last Name" ></asp:TextBox>
+                                    <asp:TextBox textmode="Password" class="form-control form-control-user" id="Password"  runat="server"
+                                        placeholder="Password" ></asp:TextBox>
                                     </div>
                                 </div>
-                                <div class="form-group row">
-                                    <div class="col-sm-6 mb-3 mb-sm-0">
-                                    <asp:TextBox class="form-control form-control-user" id="ChildAge"  runat="server" TextMode="Number"
-                                        placeholder="Child's Age"></asp:TextBox>
-                                    </div>
-                                    <div class="col-sm-6 mb-3 mb-sm-0">
-                                    <asp:TextBox class="form-control form-control-user" id="ChildPassword"  runat="server"
-                                        placeholder="Child's Password" ></asp:TextBox>
-                                    </div>
-                                </div>
-
-                                <asp:Button ID="Button1" class="btn btn-primary btn-user btn-block" runat="server" Text="Next" OnClick="Register"/>
+                                <asp:Button ID="Button1" class="btn btn-primary btn-user btn-block" runat="server" Text="Register Account" OnClick="ParentRegister"/>
 
                             <div class="text-center">
                                 <a class="small" href="forgot-password.html">Forgot Password?</a>

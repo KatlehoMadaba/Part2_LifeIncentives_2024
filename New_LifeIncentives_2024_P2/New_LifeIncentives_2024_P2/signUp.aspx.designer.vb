@@ -14,31 +14,22 @@ Option Explicit On
 Partial Public Class signUp
 
     '''<summary>
-    '''exampleFirstName control.
+    '''form1 control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents exampleFirstName As Global.System.Web.UI.WebControls.TextBox
+    Protected WithEvents form1 As Global.System.Web.UI.HtmlControls.HtmlForm
 
     '''<summary>
-    '''exampleLastName control.
+    '''ChildID control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents exampleLastName As Global.System.Web.UI.WebControls.TextBox
-
-    '''<summary>
-    '''exampleInputEmail control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents exampleInputEmail As Global.System.Web.UI.WebControls.TextBox
+    Protected WithEvents ChildID As Global.System.Web.UI.WebControls.TextBox
 
     '''<summary>
     '''ChildName control.
@@ -50,13 +41,31 @@ Partial Public Class signUp
     Protected WithEvents ChildName As Global.System.Web.UI.WebControls.TextBox
 
     '''<summary>
-    '''exampleInputPassword control.
+    '''ChildSurname control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents exampleInputPassword As Global.System.Web.UI.WebControls.TextBox
+    Protected WithEvents ChildSurname As Global.System.Web.UI.WebControls.TextBox
+
+    '''<summary>
+    '''ChildAge control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents ChildAge As Global.System.Web.UI.WebControls.TextBox
+
+    '''<summary>
+    '''ChildPassword control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents ChildPassword As Global.System.Web.UI.WebControls.TextBox
 
     '''<summary>
     '''Button1 control.
