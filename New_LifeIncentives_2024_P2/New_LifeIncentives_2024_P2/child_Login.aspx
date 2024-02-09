@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
 
 
-    <title>SB Admin 2 - Register</title>
+    <title>Child Login</title>
 
     <!-- Custom fonts for this template-->
     <link href="Login%20and%20Sign%20Up%20assets/vendor/fontawesome-free/css/all.min.css" rel="stylesheet"  type="text/css"/>
@@ -45,7 +45,7 @@
                                             <asp:TextBox ID="txtPassword" runat="server" TextMode="Password" CssClass="form-control form-control-user" placeholder="Password"></asp:TextBox>
                                         </div>
                                         <div>
-                                            <asp:Button ID="LoginButton" runat="server" Text="Login" OnClick="Login_Click" CssClass="btn btn-primary btn-user btn-block" style="background-color:#0D986A"/>
+                                            <asp:Button ID="LoginButton" runat="server" Text="Login" OnClientClick="Login_Click" CssClass="btn btn-primary btn-user btn-block" style="background-color:#0D986A"/>
                                         </div>
                                         <div>
                                             <asp:Label ID="Message" Visible="false" runat="server" Text="" ForeColor="Red"></asp:Label>
