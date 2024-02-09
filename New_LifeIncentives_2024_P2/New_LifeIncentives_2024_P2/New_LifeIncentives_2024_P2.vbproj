@@ -107,6 +107,7 @@
     <Content Include="parentDashboard.aspx" />
     <Content Include="parentGoals.aspx" />
     <Content Include="parentLogin.aspx" />
+    <Content Include="Parent_Goals.aspx" />
     <Content Include="signUp.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -186,6 +187,12 @@
     <Compile Include="parentLogin.aspx.vb">
       <DependentUpon>parentLogin.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Parent_Goals.aspx.designer.vb">
+      <DependentUpon>Parent_Goals.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Parent_Goals.aspx.vb">
+      <DependentUpon>Parent_Goals.aspx</DependentUpon>
     </Compile>
     <Compile Include="signUp.aspx.designer.vb">
       <DependentUpon>signUp.aspx</DependentUpon>
