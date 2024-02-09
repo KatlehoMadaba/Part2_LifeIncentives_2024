@@ -95,6 +95,7 @@
     <Content Include="childDashboard.aspx" />
     <Content Include="childGoals.aspx" />
     <Content Include="childLogin.aspx" />
+    <Content Include="child_Login.aspx" />
     <Content Include="I_css\sb-admin-2.css" />
     <Content Include="I_css\sb-admin-2.min.css" />
     <Content Include="I_js\demo\chart-area-demo.js" />
@@ -107,6 +108,8 @@
     <Content Include="parentDashboard.aspx" />
     <Content Include="parentGoals.aspx" />
     <Content Include="parentLogin.aspx" />
+    <Content Include="Parent_Goals.aspx" />
+    <Content Include="Questions.aspx" />
     <Content Include="signUp.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -130,7 +133,13 @@
     </Compile>
     <Compile Include="childLogin.aspx.vb">
       <DependentUpon>childLogin.aspx</DependentUpon>
-      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="child_Login.aspx.designer.vb">
+      <DependentUpon>child_Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="child_Login.aspx.vb">
+      <DependentUpon>child_Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="landingPage.aspx.designer.vb">
       <DependentUpon>landingPage.aspx</DependentUpon>
@@ -186,6 +195,19 @@
     <Compile Include="parentLogin.aspx.vb">
       <DependentUpon>parentLogin.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Parent_Goals.aspx.designer.vb">
+      <DependentUpon>Parent_Goals.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Parent_Goals.aspx.vb">
+      <DependentUpon>Parent_Goals.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Questions.aspx.designer.vb">
+      <DependentUpon>Questions.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Questions.aspx.vb">
+      <DependentUpon>Questions.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="signUp.aspx.designer.vb">
       <DependentUpon>signUp.aspx</DependentUpon>
