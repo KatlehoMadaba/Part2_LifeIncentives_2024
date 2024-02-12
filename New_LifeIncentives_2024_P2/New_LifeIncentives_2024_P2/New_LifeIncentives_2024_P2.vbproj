@@ -182,8 +182,11 @@
     <Content Include="assets\vendor\php-email-form\validate.js" />
     <Content Include="assets\vendor\swiper\swiper-bundle.min.css" />
     <Content Include="assets\vendor\swiper\swiper-bundle.min.js" />
+    <Content Include="bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll" />
+    <Content Include="bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml" />
     <Content Include="bin\New_LifeIncentives_2024_P2.dll" />
     <Content Include="bin\New_LifeIncentives_2024_P2.pdb" />
+    <Content Include="bin\New_LifeIncentives_2024_P2.xml" />
     <Content Include="childDashboard.aspx" />
     <Content Include="childGoals.aspx" />
     <Content Include="child_Login.aspx" />
@@ -1890,11 +1893,25 @@
     <Content Include="obj\Debug\TempPE\My Project.Resources.Designer.vb.dll" />
     <Content Include="parentDashboard.aspx" />
     <Content Include="parentLogin.aspx" />
+    <Content Include="ParentProfile.aspx" />
     <Content Include="Parent_Goals.aspx" />
+    <Content Include="Profile.aspx" />
     <Content Include="Questions.aspx" />
     <Content Include="signUp.aspx" />
     <Content Include="signUpParent.aspx" />
     <Content Include="SiteMaster_css\style.css" />
+    <Content Include="T-Images\ballonss.jpg" />
+    <Content Include="T-Images\C-Signup.png" />
+    <Content Include="T-Images\government.jpg" />
+    <Content Include="T-Images\Landing Page.png" />
+    <Content Include="T-Images\Login.jpg" />
+    <Content Include="T-Images\P-signup.png" />
+    <Content Include="T-Images\Parents.jpg" />
+    <Content Include="T-Images\profilepic.png" />
+    <Content Include="T-Images\Request-btn.png" />
+    <Content Include="T-Images\tasks.png" />
+    <Content Include="T-Images\transaction.png" />
+    <Content Include="Transactions.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -1969,11 +1986,25 @@
       <DependentUpon>parentLogin.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
+    <Compile Include="ParentProfile.aspx.designer.vb">
+      <DependentUpon>ParentProfile.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ParentProfile.aspx.vb">
+      <DependentUpon>ParentProfile.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
     <Compile Include="Parent_Goals.aspx.designer.vb">
       <DependentUpon>Parent_Goals.aspx</DependentUpon>
     </Compile>
     <Compile Include="Parent_Goals.aspx.vb">
       <DependentUpon>Parent_Goals.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Profile.aspx.designer.vb">
+      <DependentUpon>Profile.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Profile.aspx.vb">
+      <DependentUpon>Profile.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Questions.aspx.designer.vb">
       <DependentUpon>Questions.aspx</DependentUpon>
@@ -2001,6 +2032,13 @@
     </Compile>
     <Compile Include="Site1.Master.vb">
       <DependentUpon>Site1.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Transactions.aspx.designer.vb">
+      <DependentUpon>Transactions.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Transactions.aspx.vb">
+      <DependentUpon>Transactions.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Utility\cipherGate.vb" />
@@ -2228,6 +2266,7 @@
     <Content Include="Login and Sign Up assets\vendor\fontawesome-free\webfonts\fa-solid-900.woff2" />
     <Content Include="Login and Sign Up assets\vendor\jquery\jquery.min.map" />
     <Content Include="Login and Sign Up assets\vendor\jquery\jquery.slim.min.map" />
+    <Content Include="bin\New_LifeIncentives_2024_P2.dll.config" />
     <None Include="My Project\Application.myapp">
       <Generator>MyApplicationCodeGenerator</Generator>
       <LastGenOutput>Application.Designer.vb</LastGenOutput>
@@ -2258,6 +2297,9 @@
     <None Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="bin\roslyn\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
