@@ -1,9 +1,8 @@
 ﻿<%@ Language="vb" AutoEventWireup="false" CodeBehind="landingPage.aspx.vb" Inherits="New_LifeIncentives_2024_P2.landingPage" %>
 
-<!DOCTYPE html>
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">  <meta charset="utf-8">
+    <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
   <title>Restaurantly Bootstrap Template - Index</title>
@@ -36,10 +35,14 @@
   * Author: BootstrapMade.com
   * License: https://bootstrapmade.com/license/
   ======================================================== -->
-</head>
+</asp:Content>
+
+
     
-<body>
-<form id="form1" runat="server">
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+
+
+<form runat="server">
 
 
 <style>
@@ -101,12 +104,12 @@
 
           <div class="btns">
            <div class="dropdown">
-              <a href="parentLogin.aspx" class="btn-menu animated fadeInUp">Login</a>
+                <%--<asp:Button ID="btnSubmit" runat="server" Text="Submit" OnClick="btnSubmit_Click" />--%>
               <div class="dropdown-content" style="color:black;border-radius:35px;background:linear-gradient(45deg,#002316,white)">
                  <div>
-                       <select name="cars" id="cars" style="color:black;border-radius:35px;background:linear-gradient(45deg,#002316,white)" >
-                         <option value="Parent"  style="color:black;border-radius:35px;background:linear-gradient(45deg,#002316,white)">Parent</option>
-                         <option value="Child"  style="color:black;border-radius:35px;background:linear-gradient(45deg,#002316,white)">Child</option>                                           
+                       <select name="Opt" id="Opt" runat="server" style="color:black;border-radius:35px;background:linear-gradient(45deg,#002316,white)" >
+                         <option value="1"  style="color:black;border-radius:35px;background:linear-gradient(45deg,#002316,white)">Parent</option>
+                         <option value="2"  style="color:black;border-radius:35px;background:linear-gradient(45deg,#002316,white)">Child</option>                                           
                       </select>
  
                  </div>
@@ -136,6 +139,5 @@
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
 
-    </form>
-</body>
-</html>
+</form>
+</asp:Content>

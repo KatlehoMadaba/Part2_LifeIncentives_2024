@@ -1895,7 +1895,19 @@
     <Content Include="signUp.aspx" />
     <Content Include="signUpParent.aspx" />
     <Content Include="SiteMaster_css\style.css" />
+    <Content Include="T-Images\ballonss.jpg" />
+    <Content Include="T-Images\C-Signup.png" />
+    <Content Include="T-Images\government.jpg" />
+    <Content Include="T-Images\Landing Page.png" />
+    <Content Include="T-Images\Login.jpg" />
+    <Content Include="T-Images\P-signup.png" />
+    <Content Include="T-Images\Parents.jpg" />
+    <Content Include="T-Images\profilepic.png" />
+    <Content Include="T-Images\Request-btn.png" />
+    <Content Include="T-Images\tasks.png" />
+    <Content Include="T-Images\transaction.png" />
     <Content Include="Web.config" />
+    <Content Include="Profile.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="childDashboard.aspx.designer.vb">
@@ -2008,6 +2020,13 @@
     <Compile Include="Utility\DBInterface.vb" />
     <Compile Include="Utility\ENTITY.VB" />
     <Compile Include="Utility\genfunctions.vb" />
+    <Compile Include="Profile.aspx.designer.vb">
+      <DependentUpon>Profile.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Profile.aspx.vb">
+      <DependentUpon>Profile.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="My Project\Resources.resx">
