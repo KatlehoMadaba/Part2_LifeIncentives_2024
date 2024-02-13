@@ -15,8 +15,6 @@ Public Class signUp
 
     Protected Sub Register(sender As Object, e As EventArgs)
 
-
-
         cu.Child_ID = ChildID.Text
         cu.Child_Name = ChildName.Text
         cu.Child_Surname = ChildSurname.Text
@@ -30,10 +28,5 @@ Public Class signUp
         Response.Redirect("signUpParent.aspx")
 
     End Sub
-
-
-
-
-
 
 End Class

@@ -15,6 +15,7 @@ Public Class child_Login
         Dim Name As String = txtName.Text
         Dim Password As String = txtPassword.Text
 
+
     End Sub
 
 
